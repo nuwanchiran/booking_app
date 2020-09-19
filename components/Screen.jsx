@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 import colors from "../config/colors";
 import Header from "./Header";
 
-export default function Screen({ children, style, navigation }) {
+export default function Screen({ children, style, navigation, title, goBack }) {
   return (
     <SafeAreaView style={[styles.container, style]}>
       <StatusBar
@@ -13,7 +13,7 @@ export default function Screen({ children, style, navigation }) {
         barStyle='light-content'
         animated
       />
-      <Header navigation={navigation} />
+      <Header navigation={navigation} title={title} goBack={goBack} />
       <View style={[styles.view, style]}>{children}</View>
     </SafeAreaView>
   );

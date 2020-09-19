@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Screen from "../common/Screen";
+import Screen from "../components/Screen";
 
 export default function HotelList({ navigation }) {
   return (
-    <Screen navigation={navigation}>
+    <Screen navigation={navigation} title='Hotel List' goBack>
       <Text>HotelList</Text>
     </Screen>
   );
