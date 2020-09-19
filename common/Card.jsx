@@ -2,7 +2,7 @@ import React from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
-
+import { FontAwesome } from "@expo/vector-icons";
 export default function Card({
   rowMode,
   image,
@@ -10,6 +10,9 @@ export default function Card({
   title,
   subTitle,
   price,
+  rating,
+  reviews,
+  height,
 }) {
   return (
     <View
@@ -17,7 +20,8 @@ export default function Card({
         styles.container,
         {
           flexDirection: rowMode ? "row" : "column",
-          height: rowMode ? 220 : 300,
+          minHeight: 100,
+          height: height,
         },
       ]}
     >
@@ -36,7 +40,13 @@ export default function Card({
       {(title || price || subTitle) && (
         <View style={[styles.details, { width: rowMode ? "50%" : "100%" }]}>
           {price && (
-            <AppText style={{ color: colors.secondary }}>
+            <AppText
+              style={{
+                color: colors.secondary,
+                fontSize: 16,
+                fontWeight: "bold",
+              }}
+            >
               Price : LKR {price}
             </AppText>
           )}
@@ -50,6 +60,79 @@ export default function Card({
               {subTitle}
             </AppText>
           )}
+          <View
+            style={[
+              styles.feedback,
+              { display: "flex", flexDirection: rowMode ? "column" : "row" },
+            ]}
+          >
+            {reviews && (
+              <AppText
+                style={{
+                  fontSize: 14,
+                  color: colors.secondary,
+                  paddingVertical: 5,
+                }}
+              >
+                {reviews} Reviews
+              </AppText>
+            )}
+            {rating && (
+              <View
+                style={{
+                  marginVertical: rowMode && 5,
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-evenly",
+                  width: rowMode ? 120 : 180,
+                }}
+              >
+                <FontAwesome
+                  name='star'
+                  size={rowMode ? 14 : 22}
+                  color='#FFC911'
+                  style={{ marginVertical: 2 }}
+                />
+                <FontAwesome
+                  name='star'
+                  size={rowMode ? 14 : 22}
+                  color='#FFC911'
+                  style={{ marginVertical: 2 }}
+                />
+                <FontAwesome
+                  name='star'
+                  size={rowMode ? 14 : 22}
+                  color='#FFC911'
+                  style={{ marginVertical: 2 }}
+                />
+                <FontAwesome
+                  name='star'
+                  size={rowMode ? 14 : 22}
+                  color='#FFC911'
+                  style={{ marginVertical: 2 }}
+                />
+                <FontAwesome
+                  name='star'
+                  size={rowMode ? 14 : 22}
+                  color='#FFC911'
+                  style={{ marginVertical: 2 }}
+                />
+                <AppText
+                  style={{
+                    fontSize: 20,
+                    backgroundColor: colors.primary,
+                    color: colors.light,
+                    textAlign: "center",
+                    paddingHorizontal: 5,
+                    borderRadius: 5,
+                    marginBottom: 10,
+                  }}
+                >
+                  {rating}
+                </AppText>
+              </View>
+            )}
+          </View>
         </View>
       )}
     </View>
@@ -59,6 +142,7 @@ export default function Card({
 const styles = StyleSheet.create({
   container: {
     display: "flex",
+    backgroundColor: colors.light,
     flex: 1,
     padding: 3,
     borderRadius: 3,
@@ -93,5 +177,11 @@ const styles = StyleSheet.create({
   details: {
     display: "flex",
     padding: 10,
+  },
+  feedback: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 10,
   },
 });
