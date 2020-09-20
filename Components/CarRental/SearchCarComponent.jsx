@@ -11,7 +11,7 @@ export default class SearchCarComponent extends Component {
   render() {
     return (
       <View>
-        <div>
+        <div style={{ backgroundColor: "white" }}>
           <Button
             onPress={() => this.props.navigation.navigate("CarSearchResults")}
             title="Search Cars#"

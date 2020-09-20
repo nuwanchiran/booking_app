@@ -9,20 +9,20 @@ export default class CarResult extends Component {
   }
 
   navigate() {
-    //this.props.navigation.navigate("SelectedCar");
+    this.props.navigation.navigate("SelectedCar");
     //console.log("fffffff");
   }
 
   render() {
     return (
       <View>
-        <div>
+        <div onClick={() => this.navigate()}>
           {/* onClick={() => this.props.navigation.navigate("SelectedCar")} */}
           <Text>Car Result ###</Text>
-          <Button
+          {/* <Button
             onPress={() => this.props.navigation.navigate("SelectedCar")}
             title="View this car>>"
-          />
+          /> */}
         </div>
       </View>
     );
