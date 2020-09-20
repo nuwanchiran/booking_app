@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Button, Text, StyleSheet, View } from "react-native";
-import Header from "../common/Header";
-import Screen from "../common/Screen";
+import Screen from "../Components/Screen";
 import SearchCarComponent from "../Components/CarRental/SearchCarComponent";
 
 export default class CarSearch extends Component {

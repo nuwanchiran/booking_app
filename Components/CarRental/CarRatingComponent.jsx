@@ -10,9 +10,9 @@ export default class CarRatingComponent extends Component {
   render() {
     return (
       <View>
-        <div>
+        <View>
           <Text>Car Rating Component</Text>
-        </div>
+        </View>
       </View>
     );
   }

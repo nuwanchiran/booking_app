@@ -18,7 +18,7 @@ export default function Header({ navigation, title, goBack }) {
       <View style={styles.navLogo}>
         {goBack ? (
           <Ionicons
-            name='ios-arrow-round-back'
+            name="ios-arrow-round-back"
             size={iconSize + 15}
             color={iconColor}
             style={styles.icon}
@@ -26,7 +26,7 @@ export default function Header({ navigation, title, goBack }) {
           />
         ) : (
           <Feather
-            name='menu'
+            name="menu"
             style={styles.icon}
             size={30}
             color={iconColor}
@@ -46,12 +46,12 @@ export default function Header({ navigation, title, goBack }) {
       </View>
       <View style={styles.navSideIcons}>
         <MaterialCommunityIcons
-          name='chat-outline'
+          name="chat-outline"
           size={iconSize}
           color={iconColor}
         />
-        <AntDesign name='bells' size={iconSize} color={iconColor} />
-        <Entypo name='dots-three-vertical' size={iconSize} color={iconColor} />
+        <AntDesign name="bells" size={iconSize} color={iconColor} />
+        <Entypo name="dots-three-vertical" size={iconSize} color={iconColor} />
       </View>
     </View>
   );

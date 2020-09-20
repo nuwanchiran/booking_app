@@ -16,14 +16,14 @@ export default class CarResult extends Component {
   render() {
     return (
       <View>
-        <div onClick={() => this.navigate()}>
+        <View onClick={() => this.navigate()}>
           {/* onClick={() => this.props.navigation.navigate("SelectedCar")} */}
           <Text>Car Result ###</Text>
           {/* <Button
             onPress={() => this.props.navigation.navigate("SelectedCar")}
             title="View this car>>"
           /> */}
-        </div>
+        </View>
       </View>
     );
   }

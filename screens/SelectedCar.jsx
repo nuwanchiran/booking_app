@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
-import Header from "../common/Header";
-import Screen from "../common/Screen";
+import Screen from "../Components/Screen";
 import SelectedCarDetailsComponent from "../Components/CarRental/SelectedCarDetailsComponent";
 import PickupDropOffComponent from "../Components/CarRental/PickupDropOffComponent";
 import CarRatingComponent from "../Components/CarRental/CarRatingComponent";
@@ -25,10 +24,10 @@ export default class SelectedCar extends Component {
         <MapComponent />
         <CarFeeComponent />
 
-         <Button
+        <Button
           onPress={() => this.props.navigation.navigate("CarCustomerDetails")}
           title="Book this car"
-        /> 
+        />
       </Screen>
     );
   }

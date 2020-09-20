@@ -10,9 +10,9 @@ export default class SelectedCarDetailsComponent extends Component {
   render() {
     return (
       <View>
-        <div>
+        <View>
           <Text>Selected Car Details Component</Text>
-        </div>
+        </View>
       </View>
     );
   }

@@ -10,9 +10,9 @@ export default class CarFeeComponent extends Component {
   render() {
     return (
       <View>
-        <div>
+        <View>
           <Text>Car FeeComponent Component</Text>
-        </div>
+        </View>
       </View>
     );
   }

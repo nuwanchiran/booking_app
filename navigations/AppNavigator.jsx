@@ -9,7 +9,6 @@ import routes from "./routes";
 import TravelOffers from "../screens/TravelOffers";
 import YourContributions from "../screens/YourContributions";
 import AppFeedback from "../screens/AppFeedback";
-import HomeNavigator from "./HomeNavigator";
 import CarRentalsNavigator from "./CarRentalsNavigator";
 import colors from "../config/colors";
 import { AntDesign } from "@expo/vector-icons";
@@ -25,7 +24,7 @@ export default function AppNavigator() {
       <Drawer.Navigator
         initialRouteName={routes.Home}
         drawerLockMode="locked-closed"
-        drawerType='front'
+        drawerType="front"
         drawerStyle={{ color: colors.dark, backgroundColor: colors.light }}
       >
         <Drawer.Screen
@@ -35,7 +34,7 @@ export default function AppNavigator() {
             title: "Home",
             drawerIcon: ({ focused, size }) => (
               <Feather
-                name='home'
+                name="home"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />
@@ -49,7 +48,7 @@ export default function AppNavigator() {
             title: "Gift Card",
             drawerIcon: ({ focused, size }) => (
               <AntDesign
-                name='gift'
+                name="gift"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />

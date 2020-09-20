@@ -10,9 +10,9 @@ export default class MapComponent extends Component {
   render() {
     return (
       <View>
-        <div>
+        <View>
           <Text>Map Component</Text>
-        </div>
+        </View>
       </View>
     );
   }
