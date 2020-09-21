@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, Text, StyleSheet, View } from "react-native";
-import Screen from "../Components/Screen";
-import CarResult from "../Components/CarRental/CarResult";
-import SearchCarComponent from "../Components/CarRental/SearchCarComponent";
+import Screen from "../components/Screen";
+import CarResult from "../components/CarRental/CarResult";
+import SearchCarComponent from "../components/CarRental/SearchCarComponent";
 
 export default class CarCustomerDetails extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export default class CarCustomerDetails extends Component {
 
         <Button
           onPress={() => this.props.navigation.navigate("PaymentGateway")}
-          title="Submit"
+          title='Submit'
         />
       </Screen>
     );

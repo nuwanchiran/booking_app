@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, Text, StyleSheet, View } from "react-native";
-import Screen from "../Components/Screen";
-import CarResult from "../Components/CarRental/CarResult";
-import SearchCarComponent from "../Components/CarRental/SearchCarComponent";
+import Screen from "../components/Screen";
+import CarResult from "../components/CarRental/CarResult";
+import SearchCarComponent from "../components/CarRental/SearchCarComponent";
 
 export default class CarSearchResults extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ export default class CarSearchResults extends Component {
 
         <Button
           onPress={() => this.props.navigation.navigate("CarSearchResults")}
-          title="Filter"
+          title='Filter'
         />
       </Screen>
     );

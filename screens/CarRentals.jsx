@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
-import Screen from "../Components/Screen";
+import AppText from "../common/AppText";
+import Screen from "../components/Screen";
 
 export default class CarRentals extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class CarRentals extends Component {
   render() {
     return (
       <Screen navigation={this.props.navigation}>
-        <Text>CarRentals</Text>
+        <AppText>CarRentals</AppText>
 
         {/* <Button
           onPress={() => this.props.navigation.navigate("CarSearch")}

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
-import Screen from "../Components/Screen";
-import SelectedCarDetailsComponent from "../Components/CarRental/SelectedCarDetailsComponent";
-import PickupDropOffComponent from "../Components/CarRental/PickupDropOffComponent";
-import CarRatingComponent from "../Components/CarRental/CarRatingComponent";
-import MapComponent from "../Components/CarRental/MapComponent";
-import CarFeeComponent from "../Components/CarRental/CarFeeComponent";
+import Screen from "../components/Screen";
+import SelectedCarDetailsComponent from "../components/CarRental/SelectedCarDetailsComponent";
+import PickupDropOffComponent from "../components/CarRental/PickupDropOffComponent";
+import CarRatingComponent from "../components/CarRental/CarRatingComponent";
+import MapComponent from "../components/CarRental/MapComponent";
+import CarFeeComponent from "../components/CarRental/CarFeeComponent";
 
 export default class SelectedCar extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class SelectedCar extends Component {
 
         <Button
           onPress={() => this.props.navigation.navigate("CarCustomerDetails")}
-          title="Book this car"
+          title='Book this car'
         />
       </Screen>
     );

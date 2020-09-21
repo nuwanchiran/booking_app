@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Text, StyleSheet, View } from "react-native";
-import Screen from "../Components/Screen";
-import SearchCarComponent from "../Components/CarRental/SearchCarComponent";
+import Screen from "../components/Screen";
+import SearchCarComponent from "../components/CarRental/SearchCarComponent";
 
 export default class CarSearch extends Component {
   constructor(props) {

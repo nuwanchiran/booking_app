@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Text, StyleSheet, View } from "react-native";
-import Screen from "../Components/Screen";
+import Screen from "../components/Screen";
 
 export default class TravelOffers extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class TravelOffers extends Component {
         <Text>Travel Offers</Text>
         <Button
           onPress={() => this.props.navigation.goBack()}
-          title="Go back home"
+          title='Go back home'
         />
       </Screen>
     );
