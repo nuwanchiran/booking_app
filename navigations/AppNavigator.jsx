@@ -6,6 +6,10 @@ import { Feather } from "@expo/vector-icons";
 import GiftCard from "../screens/GiftCard";
 import HomeNavigator from "./HomeNavigator";
 import routes from "./routes";
+import TravelOffers from "../screens/TravelOffers";
+import YourContributions from "../screens/YourContributions";
+import AppFeedback from "../screens/AppFeedback";
+import CarRentalsNavigator from "./CarRentalsNavigator";
 import colors from "../config/colors";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -19,8 +23,8 @@ export default function AppNavigator() {
     <NavigationContainer>
       <Drawer.Navigator
         initialRouteName={routes.Home}
-        drawerLockMode='locked-closed'
-        drawerType='front'
+        drawerLockMode="locked-closed"
+        drawerType="front"
         drawerStyle={{ color: colors.dark, backgroundColor: colors.light }}
       >
         <Drawer.Screen
@@ -30,7 +34,7 @@ export default function AppNavigator() {
             title: "Home",
             drawerIcon: ({ focused, size }) => (
               <Feather
-                name='home'
+                name="home"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />
@@ -44,13 +48,23 @@ export default function AppNavigator() {
             title: "Gift Card",
             drawerIcon: ({ focused, size }) => (
               <AntDesign
-                name='gift'
+                name="gift"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />
             ),
           }}
         />
+        <Drawer.Screen
+          name={routes.CarRentals}
+          component={CarRentalsNavigator}
+        />
+        <Drawer.Screen name={routes.TravelOffers} component={TravelOffers} />
+        <Drawer.Screen
+          name={routes.YourContributions}
+          component={YourContributions}
+        />
+        <Drawer.Screen name={routes.AppFeedback} component={AppFeedback} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
