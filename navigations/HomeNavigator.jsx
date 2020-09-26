@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import HotelList from "../screens/HotelList";
 import routes from "./routes";
+import HotelDetails from "../screens/HotelDetails";
 
 const Stack = createStackNavigator();
 
@@ -12,6 +13,7 @@ export default function HomeNavigator() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name={routes.Home} component={Home} />
       <Stack.Screen name={routes.HotelList} component={HotelList} />
+      <Stack.Screen name={routes.HotelDetails} component={HotelDetails} />
     </Stack.Navigator>
   );
 }

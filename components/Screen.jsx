@@ -10,7 +10,7 @@ export default function Screen({ children, style, navigation, title, goBack }) {
     <SafeAreaView style={[styles.container, style]}>
       <StatusBar
         backgroundColor={colors.primary}
-        barStyle="light-content"
+        barStyle='light-content'
         animated
       />
       <Header navigation={navigation} title={title} goBack={goBack} />

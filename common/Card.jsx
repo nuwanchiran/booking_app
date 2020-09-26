@@ -5,6 +5,7 @@ import AppText from "./AppText";
 import { FontAwesome } from "@expo/vector-icons";
 export default function Card({
   rowMode,
+  horizontalScroll,
   image,
   label,
   title,
@@ -13,6 +14,7 @@ export default function Card({
   rating,
   reviews,
   height,
+  marginNone,
 }) {
   return (
     <View
@@ -22,6 +24,8 @@ export default function Card({
           flexDirection: rowMode ? "row" : "column",
           minHeight: 100,
           height: height,
+          marginHorizontal: marginNone ? 0 : 20,
+          marginVertical: marginNone ? 0 : 10,
         },
       ]}
     >
@@ -32,6 +36,7 @@ export default function Card({
             styles.img,
             { height: rowMode ? "100%" : 229 },
             { width: rowMode ? 50 : "100%" },
+            { minWidth: horizontalScroll ? 300 : null },
           ]}
         >
           {label && <AppText style={styles.label}>{label}</AppText>}
@@ -144,10 +149,7 @@ const styles = StyleSheet.create({
     display: "flex",
     backgroundColor: colors.light,
     flex: 1,
-    padding: 3,
-    borderRadius: 3,
-    marginVertical: 10,
-    marginHorizontal: 20,
+    borderRadius: 15,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -159,12 +161,13 @@ const styles = StyleSheet.create({
   },
   img: {
     flex: 1,
+    borderRadius: 15,
     resizeMode: "cover",
     justifyContent: "flex-end",
     overflow: "hidden",
   },
   label: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.secondary,
     paddingHorizontal: 10,
     paddingVertical: 5,
     marginVertical: 10,
