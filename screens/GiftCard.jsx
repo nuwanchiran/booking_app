@@ -1,10 +1,20 @@
-import React from "react";
-import { Button, StyleSheet, Text, ImageBackground, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, ImageBackground, View } from "react-native";
 import AppButton from "../common/AppButton";
 import AppTextInput from "../common/AppTextInput";
 import Screen from "../components/Screen";
 
 export default function GiftCard({ navigation }) {
+  const [no, setNo] = useState("");
+  const [pin, setPin] = useState("");
+  const handleSubmit = () => {
+    if (no === "" || pin === "") {
+      alert("Please, Fill all columns");
+    }
+    setNo("");
+    setPin("");
+  };
+
   return (
     <Screen navigation={navigation} title='Gift Card'>
       <ImageBackground
@@ -12,13 +22,24 @@ export default function GiftCard({ navigation }) {
         style={styles.image}
       >
         <View style={styles.formContainer}>
-          <AppTextInput placeholder='Card No' icon='card' />
-          <AppTextInput placeholder='Pin No' icon='pin' />
+          <AppTextInput
+            placeholder='Card No'
+            icon='card'
+            value={no}
+            onChange={({ target }) => setNo(target.value)}
+          />
+          <AppTextInput
+            placeholder='Pin No'
+            icon='pin'
+            value={pin}
+            onChange={({ target }) => setPin(target.value)}
+          />
           <AppButton
             title='Add to wallet'
             color='primary'
             icon='wallet'
             iconColor='light'
+            onPress={handleSubmit}
           />
         </View>
       </ImageBackground>

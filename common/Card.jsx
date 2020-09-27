@@ -16,6 +16,8 @@ export default function Card({
   height,
   marginNone,
 }) {
+  const star = rating / 1;
+  const half = rating % 1;
   return (
     <View
       style={[
@@ -92,36 +94,24 @@ export default function Card({
                   width: rowMode ? 120 : 180,
                 }}
               >
-                <FontAwesome
-                  name='star'
-                  size={rowMode ? 14 : 22}
-                  color='#FFC911'
-                  style={{ marginVertical: 2 }}
-                />
-                <FontAwesome
-                  name='star'
-                  size={rowMode ? 14 : 22}
-                  color='#FFC911'
-                  style={{ marginVertical: 2 }}
-                />
-                <FontAwesome
-                  name='star'
-                  size={rowMode ? 14 : 22}
-                  color='#FFC911'
-                  style={{ marginVertical: 2 }}
-                />
-                <FontAwesome
-                  name='star'
-                  size={rowMode ? 14 : 22}
-                  color='#FFC911'
-                  style={{ marginVertical: 2 }}
-                />
-                <FontAwesome
-                  name='star'
-                  size={rowMode ? 14 : 22}
-                  color='#FFC911'
-                  style={{ marginVertical: 2 }}
-                />
+                {Array.from({ length: star }, (_, index) => (
+                  <FontAwesome
+                    key={index}
+                    name='star'
+                    size={rowMode ? 14 : 22}
+                    color='#FFC911'
+                    style={{ marginVertical: 2 }}
+                  />
+                ))}
+                {half > 0 && (
+                  <FontAwesome
+                    name='star-half'
+                    size={rowMode ? 14 : 22}
+                    color='#FFC911'
+                    style={{ marginVertical: 2 }}
+                  />
+                )}
+
                 <AppText
                   style={{
                     fontSize: 20,
@@ -133,7 +123,7 @@ export default function Card({
                     marginBottom: 10,
                   }}
                 >
-                  {rating}
+                  {half > 0 ? rating : `${rating}.0`}
                 </AppText>
               </View>
             )}
