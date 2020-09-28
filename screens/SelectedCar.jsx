@@ -6,6 +6,7 @@ import PickupDropOffComponent from "../components/CarRental/PickupDropOffCompone
 import CarRatingComponent from "../components/CarRental/CarRatingComponent";
 import MapComponent from "../components/CarRental/MapComponent";
 import CarFeeComponent from "../components/CarRental/CarFeeComponent";
+import HotelOrCarSelectorCard from "../components/cards/HotelOrCarSelectorCard";
 
 export default class SelectedCar extends Component {
   constructor(props) {
@@ -16,17 +17,18 @@ export default class SelectedCar extends Component {
   render() {
     return (
       <Screen navigation={this.props.navigation}>
+        <HotelOrCarSelectorCard type={"car"} />
         <Text>Selected Car </Text>
 
         <SelectedCarDetailsComponent />
         <PickupDropOffComponent />
         <CarRatingComponent />
         <MapComponent />
-        <CarFeeComponent />
+        <CarFeeComponent charge={10.2} noDays={2} tax={3.03} />
 
         <Button
           onPress={() => this.props.navigation.navigate("CarCustomerDetails")}
-          title='Book this car'
+          title="Book this car"
         />
       </Screen>
     );
