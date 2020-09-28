@@ -5,11 +5,23 @@ import colors from "../../config/colors";
 import FilterBarComponent from "./FilterBarComponent";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
+import RangeSlider, { Slider } from "react-native-range-slider-expo";
+import { Rating, AirbnbRating } from "react-native-ratings";
 
 export default class CarFilterComponent extends Component {
   constructor(props) {
     super();
     this.state = {};
+  }
+
+  setFromValue(val) {
+    console.log("from" + val);
+  }
+  setToValue(val) {
+    console.log("to" + val);
+  }
+  ratingCompleted(rating) {
+    console.log("Rating is: " + rating);
   }
 
   render() {
@@ -145,64 +157,36 @@ export default class CarFilterComponent extends Component {
         {/* Vehicle Type - end */}
 
         {/* Cost component - start */}
-        <FilterBarComponent name={"Cost"} isEnabled={true} />
+        <FilterBarComponent name={"Cost($/km)"} isEnabled={true} />
+        <View>
+          <RangeSlider
+            min={0}
+            max={100}
+            fromValueOnChange={(value) => this.setFromValue(value)}
+            toValueOnChange={(value) => this.setToValue(value)}
+            initialFromValue={0}
+          />
+        </View>
         {/* Cost component - end */}
 
         {/* Rating component - start */}
-        <FilterBarComponent name={"Rating"} isEnabled={true} />
-        <View
-          style={{
-            // marginVertical: rowMode && 5,
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            // width: rowMode ? 120 : 180,
-          }}
-        >
-          <FontAwesome
-            name="star"
-            size={25}
-            color="#FFC911"
-            style={{ marginVertical: 2 }}
-          />
-          <FontAwesome
-            name="star"
-            size={25}
-            color="#FFC911"
-            style={{ marginVertical: 2 }}
-          />
-          <FontAwesome
-            name="star"
-            size={25}
-            color="#FFC911"
-            style={{ marginVertical: 2 }}
-          />
-          <FontAwesome
-            name="star"
-            size={25}
-            color="#FFC911"
-            style={{ marginVertical: 2 }}
-          />
-          <FontAwesome
-            name="star"
-            size={25}
-            color="#FFC911"
-            style={{ marginVertical: 2 }}
-          />
-          <AppText
+        <View style={{ marginTop: -50 }}>
+          <FilterBarComponent name={"Rating"} isEnabled={true} />
+          <View
             style={{
-              fontSize: 20,
-              backgroundColor: colors.primary,
-              color: colors.light,
-              textAlign: "center",
-              paddingHorizontal: 5,
-              borderRadius: 5,
-              marginBottom: 10,
+              // marginVertical: rowMode && 5,
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              // width: rowMode ? 120 : 180,
             }}
           >
-            {5}
-          </AppText>
+            <View style={{ marginTop: -25 }}>
+              <AirbnbRating />
+            </View>
+          </View>
         </View>
+
         {/* Raing component - end */}
       </View>
     );

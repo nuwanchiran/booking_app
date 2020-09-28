@@ -10,8 +10,10 @@ export default class SearchCarComponent extends Component {
     super();
     this.state = {
       isSelected: true,
+      isSelectedAge: false,
     };
     this.setSelected = this.setSelected.bind(this);
+    this.setSelectedAge = this.setSelectedAge.bind(this);
   }
 
   setFromValue(val) {
@@ -22,8 +24,10 @@ export default class SearchCarComponent extends Component {
   }
 
   setSelected() {
-    console.log("sele");
     this.setState({ isSelected: !this.state.isSelected });
+  }
+  setSelectedAge() {
+    this.setState({ isSelectedAge: !this.state.isSelectedAge });
   }
 
   render() {
@@ -53,12 +57,24 @@ export default class SearchCarComponent extends Component {
           </View>
           <View>
             <RangeSlider
-              min={5}
-              max={25}
+              min={18}
+              max={80}
               fromValueOnChange={(value) => this.setFromValue(value)}
               toValueOnChange={(value) => this.setToValue(value)}
-              initialFromValue={11}
+              initialFromValue={25}
             />
+          </View>
+          <View style={styles.returnToSameLocContainer}>
+            <View style={styles.anyAgeTextView}>
+              <AppText>Any age</AppText>
+            </View>
+            <View style={styles.AnyAgeTickView}>
+              <CheckBox
+                value={this.state.isSelectedAge}
+                onValueChange={this.setSelectedAge}
+                style={styles.checkboxcust}
+              />
+            </View>
           </View>
           <AppButton
             title="Search"
@@ -101,4 +117,12 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 10,
   },
+  anyAgeContainer: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    alignContent: "flex-start",
+  },
+
+  anyAgeTextView: { flexGrow: 1, paddingTop: 15, paddingLeft: 10 },
+  AnyAgeTickView: { flexGrow: 0 },
 });

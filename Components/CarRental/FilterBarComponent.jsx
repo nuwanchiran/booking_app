@@ -11,6 +11,9 @@ export default class FilterBarComponent extends Component {
       isEnabled: props.isEnabled,
     };
   }
+  toggleSwitch() {
+    this.setState({ isEnabled: !this.state.isEnabled });
+  }
 
   render() {
     return (
@@ -32,8 +35,8 @@ export default class FilterBarComponent extends Component {
               trackColor={{ false: "#767577", true: "#81b0ff" }}
               thumbColor={this.state.isEnabled ? "#003580" : "#f4f3f4"}
               ios_backgroundColor="#3e3e3e"
-              //   onValueChange={toggleSwitch}
-              //   value={this.state.isEnabled}
+              onValueChange={() => this.toggleSwitch()}
+              value={this.state.isEnabled}
             />
             {/* Right side -end  */}
           </View>
