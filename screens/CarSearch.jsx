@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Button, Text, StyleSheet, View } from "react-native";
 import Screen from "../components/Screen";
+import HotelOrCarSelectorCard from "../components/cards/HotelOrCarSelectorCard";
 import SearchCarComponent from "../components/CarRental/SearchCarComponent";
+import SearchCarHistoryComponent from "../components/CarRental/SearchCarHistoryComponent";
 
 export default class CarSearch extends Component {
   constructor(props) {
@@ -12,14 +14,9 @@ export default class CarSearch extends Component {
   render() {
     return (
       <Screen navigation={this.props.navigation}>
-        <Text>CarSearch</Text>
-
+        <HotelOrCarSelectorCard type={"car"} />
         <SearchCarComponent navigation={this.props.navigation} />
-
-        {/* <Button
-          onPress={() => this.props.navigation.goBack()}
-          title="Go back home"
-        /> */}
+        <SearchCarHistoryComponent navigation={this.props.navigation} />
       </Screen>
     );
   }

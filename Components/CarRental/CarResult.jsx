@@ -19,10 +19,10 @@ export default class CarResult extends Component {
         <View onClick={() => this.navigate()}>
           {/* onClick={() => this.props.navigation.navigate("SelectedCar")} */}
           <Text>Car Result ###</Text>
-          {/* <Button
+          <Button
             onPress={() => this.props.navigation.navigate("SelectedCar")}
             title="View this car>>"
-          /> */}
+          />
         </View>
       </View>
     );

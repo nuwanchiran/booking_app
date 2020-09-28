@@ -58,13 +58,59 @@ export default function AppNavigator() {
         <Drawer.Screen
           name={routes.CarRentals}
           component={CarRentalsNavigator}
+          options={{
+            title: "Car Rentals",
+            drawerIcon: ({ focused, size }) => (
+              <AntDesign
+                name="car"
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
         />
-        <Drawer.Screen name={routes.TravelOffers} component={TravelOffers} />
+        <Drawer.Screen
+          name={routes.TravelOffers}
+          component={TravelOffers}
+          options={{
+            title: "Travel Offers",
+            drawerIcon: ({ focused, size }) => (
+              <AntDesign
+                name="hearto"
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
+        />
         <Drawer.Screen
           name={routes.YourContributions}
           component={YourContributions}
+          options={{
+            title: "Your Contributions",
+            drawerIcon: ({ focused, size }) => (
+              <AntDesign
+                name="user"
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
         />
-        <Drawer.Screen name={routes.AppFeedback} component={AppFeedback} />
+        <Drawer.Screen
+          name={routes.AppFeedback}
+          component={AppFeedback}
+          options={{
+            title: "App Feedback",
+            drawerIcon: ({ focused, size }) => (
+              <AntDesign
+                name="smileo"
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );
