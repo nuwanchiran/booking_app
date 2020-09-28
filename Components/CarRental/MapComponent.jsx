@@ -25,7 +25,9 @@ export default class MapComponent extends Component {
           ]}
         >
           <View style={{ paddingLeft: 10, paddingTop: 10 }}>
-            <AppText style={{ fontWeight: "bold" }}>Supplier Info</AppText>
+            <AppText style={{ fontWeight: "bold", fontSize: 20 }}>
+              Supplier Info
+            </AppText>
           </View>
           <View style={styles.mapArea}>
             <Text>Map is here</Text>

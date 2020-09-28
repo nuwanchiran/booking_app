@@ -9,6 +9,7 @@ import CarFeeComponent from "../components/CarRental/CarFeeComponent";
 import HotelOrCarSelectorCard from "../components/cards/HotelOrCarSelectorCard";
 import { ScrollView } from "react-native-gesture-handler";
 import AppButton from "../common/AppButton";
+import AppText from "../common/AppText";
 
 export default class SelectedCar extends Component {
   constructor(props) {
@@ -28,12 +29,11 @@ export default class SelectedCar extends Component {
           <CarRatingComponent />
           <MapComponent />
           <CarFeeComponent charge={10.2} noDays={2} tax={3.03} />
+          <View style={{ alignItems: "center" }}>
+            <AppText style={{ fontSize: 12 }}>Terms and conditions</AppText>
+          </View>
         </ScrollView>
 
-        {/* <Button
-          onPress={() => this.props.navigation.navigate("CarCustomerDetails")}
-          title="Book this car"
-        /> */}
         <View>
           <AppButton
             title="Book this car"
