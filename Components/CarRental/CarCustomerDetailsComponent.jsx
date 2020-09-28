@@ -13,6 +13,8 @@ import colors from "../../config/colors";
 import ProgressBar from "react-native-progress/Bar";
 import { AwesomeTextInput } from "react-native-awesome-text-input";
 import Textarea from "react-native-textarea";
+import Icon from "react-native-vector-icons/FontAwesome";
+import { Input } from "react-native-elements";
 
 export default class CarCustomerDetailsComponent extends Component {
   constructor(props) {
