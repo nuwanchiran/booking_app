@@ -7,6 +7,8 @@ import CarRatingComponent from "../components/CarRental/CarRatingComponent";
 import MapComponent from "../components/CarRental/MapComponent";
 import CarFeeComponent from "../components/CarRental/CarFeeComponent";
 import HotelOrCarSelectorCard from "../components/cards/HotelOrCarSelectorCard";
+import { ScrollView } from "react-native-gesture-handler";
+import AppButton from "../common/AppButton";
 
 export default class SelectedCar extends Component {
   constructor(props) {
@@ -20,16 +22,26 @@ export default class SelectedCar extends Component {
         <HotelOrCarSelectorCard type={"car"} />
         <Text>Selected Car </Text>
 
-        <SelectedCarDetailsComponent />
-        <PickupDropOffComponent />
-        <CarRatingComponent />
-        <MapComponent />
-        <CarFeeComponent charge={10.2} noDays={2} tax={3.03} />
+        <ScrollView>
+          <SelectedCarDetailsComponent />
+          <PickupDropOffComponent />
+          <CarRatingComponent />
+          <MapComponent />
+          <CarFeeComponent charge={10.2} noDays={2} tax={3.03} />
+        </ScrollView>
 
-        <Button
+        {/* <Button
           onPress={() => this.props.navigation.navigate("CarCustomerDetails")}
           title="Book this car"
-        />
+        /> */}
+        <View>
+          <AppButton
+            title="Book this car"
+            color="primary"
+            // iconColor="light"
+            onPress={() => this.props.navigation.navigate("CarCustomerDetails")}
+          />
+        </View>
       </Screen>
     );
   }

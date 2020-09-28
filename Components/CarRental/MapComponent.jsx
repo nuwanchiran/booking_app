@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Button, Text, StyleSheet, View } from "react-native";
-import AppButton from "../../common/AppButton";
+import { Button, Text, StyleSheet, View, Alert, Linking } from "react-native";
 import AppText from "../../common/AppText";
 import colors from "../../config/colors";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class MapComponent extends Component {
   constructor(props) {
@@ -48,11 +48,18 @@ export default class MapComponent extends Component {
             <View>
               {/* Supplier contact button start */}
               <View style={{ borderRadius: 20 }}>
-                <Button
-                  // onPress={onPressLearnMore}
-                  title="Chat with supplier >>>"
-                  color="#003580"
-                />
+                <TouchableOpacity>
+                  <Button
+                    onPress={() => {
+                      // Alert.alert("Simple Button pressed");
+                      Linking.openURL(
+                        `whatsapp://send?phone=${+94777735712}&text=${"Hi, I would like to chat with you"}`
+                      );
+                    }}
+                    title="Chat with supplier >>>"
+                    color="#003580"
+                  />
+                </TouchableOpacity>
               </View>
               {/* Supplier contact button end */}
             </View>
