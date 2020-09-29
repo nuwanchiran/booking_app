@@ -6,6 +6,8 @@ import SearchCarComponent from "../components/CarRental/SearchCarComponent";
 import CarRentals from "./CarRentals";
 import SelectedCar from "./SelectedCar";
 import HotelOrCarSelectorCard from "../components/cards/HotelOrCarSelectorCard";
+import FilterSortByComponent from "../components/CarRental/FilterSortByComponent";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default class CarSearchResults extends Component {
   constructor(props) {
@@ -17,18 +19,19 @@ export default class CarSearchResults extends Component {
     return (
       <Screen navigation={this.props.navigation}>
         <HotelOrCarSelectorCard type={"car"} />
-        <Text>Car Search Results</Text>
+        <FilterSortByComponent navigation={this.props.navigation} />
 
-        <Button
+        {/* <Button
           onPress={() => this.props.navigation.navigate("FilterCars")}
           title="Filter"
-        />
-
-        <CarResult navigation={this.props.navigation} />
-        <CarResult navigation={this.props.navigation} />
-        <CarResult navigation={this.props.navigation} />
-        <CarResult navigation={this.props.navigation} />
-        <CarResult navigation={this.props.navigation} />
+        /> */}
+        <ScrollView>
+          <CarResult navigation={this.props.navigation} />
+          <CarResult navigation={this.props.navigation} />
+          <CarResult navigation={this.props.navigation} />
+          <CarResult navigation={this.props.navigation} />
+          <CarResult navigation={this.props.navigation} />
+        </ScrollView>
       </Screen>
     );
   }

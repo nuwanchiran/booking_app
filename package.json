@@ -24,6 +24,7 @@
     "react-native-elements": "^2.3.2",
     "react-native-fontawesome": "^7.0.0",
     "react-native-gesture-handler": "~1.6.0",
+    "react-native-image-slider-box": "^1.0.12",
     "react-native-maps": "^0.27.1",
     "react-native-modal-dropdown": "^0.7.0",
     "react-native-month-year-picker": "^1.4.0",

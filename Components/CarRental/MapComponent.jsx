@@ -6,6 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import MapView from "react-native-maps";
+import { Marker } from "react-native-maps";
 
 export default class MapComponent extends Component {
   constructor(props) {
@@ -29,7 +30,22 @@ export default class MapComponent extends Component {
             <AppText style={styles.supplierText}>Supplier Info</AppText>
           </View>
           <View style={styles.mapArea}>
-            <MapView style={styles.mapStyle} />
+            <MapView
+              style={styles.mapStyle}
+              initialRegion={{
+                latitude: 1.337971,
+                longitude: 103.981247,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+              }}
+            >
+              <MapView.Marker
+                coordinate={{ latitude: 37.78825, longitude: -122.4324 }}
+                pinColor={"purple"} // any color
+                title={"title"}
+                description={"description"}
+              />
+            </MapView>
           </View>
 
           <View style={styles.supplierAddressContactButtonView}>
