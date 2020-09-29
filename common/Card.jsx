@@ -49,8 +49,8 @@ export default function Card({
           {price && (
             <AppText
               style={{
-                color: colors.secondary,
-                fontSize: 16,
+                color: "tomato",
+                fontSize: 18,
                 fontWeight: "bold",
               }}
             >
@@ -58,12 +58,14 @@ export default function Card({
             </AppText>
           )}
           {title && (
-            <AppText style={{ fontWeight: "bold", paddingVertical: 5 }}>
+            <AppText
+              style={{ fontWeight: "bold", paddingVertical: 5, fontSize: 16 }}
+            >
               {title}
             </AppText>
           )}
           {subTitle && (
-            <AppText style={{ fontSize: 16, paddingVertical: 5 }}>
+            <AppText style={{ fontSize: 14, paddingVertical: 5 }}>
               {subTitle}
             </AppText>
           )}

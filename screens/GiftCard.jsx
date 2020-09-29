@@ -10,6 +10,8 @@ export default function GiftCard({ navigation }) {
   const handleSubmit = () => {
     if (no === "" || pin === "") {
       alert("Please, Fill all columns");
+    } else {
+      alert("Gift added successfully");
     }
     setNo("");
     setPin("");
