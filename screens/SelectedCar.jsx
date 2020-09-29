@@ -30,7 +30,9 @@ export default class SelectedCar extends Component {
           <SelectedCarDetailsComponent />
           <PickupDropOffComponent />
           <CarRatingComponent />
+
           <MapComponent />
+
           <CarFeeComponent charge={10.2} noDays={2} tax={3.03} />
           <View style={{ alignItems: "center" }}>
             <AppText style={{ fontSize: 12 }}>Terms and conditions</AppText>

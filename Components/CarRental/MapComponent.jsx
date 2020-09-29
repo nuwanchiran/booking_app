@@ -5,6 +5,7 @@ import colors from "../../config/colors";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import MapView from "react-native-maps";
 
 export default class MapComponent extends Component {
   constructor(props) {
@@ -14,24 +15,21 @@ export default class MapComponent extends Component {
 
   render() {
     return (
-      <View style={{ flex: 0.5 }}>
+      <View style={{ flex: 0.7 }}>
         <View
           style={[
             styles.container,
             {
               // flexDirection: rowMode ? "row" : "column",
-              minHeight: 100,
+              minHeight: 400,
             },
           ]}
         >
-          <View style={{ paddingLeft: 10, paddingTop: 10 }}>
-            <AppText style={{ fontWeight: "bold", fontSize: 20 }}>
-              Supplier Info
-            </AppText>
+          <View style={{ paddingLeft: 10 }}>
+            <AppText style={styles.supplierText}>Supplier Info</AppText>
           </View>
           <View style={styles.mapArea}>
-            <Text>Map is here</Text>
-            <Text></Text>
+            <MapView style={styles.mapStyle} />
           </View>
 
           <View style={styles.supplierAddressContactButtonView}>
@@ -49,9 +47,10 @@ export default class MapComponent extends Component {
             </View>
             <View>
               {/* Supplier contact button start */}
-              <View style={{ borderRadius: 20 }}>
+              <View style={{ paddingTop: 50 }}>
                 <TouchableOpacity>
                   <Button
+                    style={{ borderRadius: 20 }}
                     onPress={() => {
                       // Alert.alert("Simple Button pressed");
                       Linking.openURL(
@@ -123,16 +122,32 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 3,
   },
-  mapArea: {},
-  supplierAddress: {},
+  mapArea: {
+    // borderRadius: 20,
+    // overflow: "hidden",
+  },
+  supplierAddress: {
+    paddingLeft: 10,
+  },
   supplierAddressContactButtonView: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
+    marginTop: -80,
   },
   addressPhonemailContainer: {
     flexDirection: "row",
     alignItems: "flex-start",
     padding: 2,
+  },
+  mapStyle: {
+    width: "100%",
+    height: "65%",
+  },
+  supplierText: {
+    fontWeight: "bold",
+    fontSize: 20,
+    paddingBottom: 10,
+    paddingTop: 10,
   },
 });
