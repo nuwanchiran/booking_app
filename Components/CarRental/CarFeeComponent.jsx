@@ -37,28 +37,30 @@ export default class CarFeeComponent extends Component {
 
           <View style={styles.costSecContainer}>
             <View>
-              <AppText>Charge Per Day</AppText>
+              <AppText style={styles.priceData}>Charge Per Day</AppText>
             </View>
             <View>
-              <AppText>US$ {this.state.charge}</AppText>
-            </View>
-          </View>
-
-          <View style={styles.costSecContainer}>
-            <View>
-              <AppText>Days Selected</AppText>
-            </View>
-            <View>
-              <AppText>X {this.state.noDays}</AppText>
+              <AppText style={styles.priceData}>
+                US$ {this.state.charge}
+              </AppText>
             </View>
           </View>
 
           <View style={styles.costSecContainer}>
             <View>
-              <AppText>Government Tax</AppText>
+              <AppText style={styles.priceData}>Days Selected</AppText>
             </View>
             <View>
-              <AppText>US$ {this.state.tax}</AppText>
+              <AppText style={styles.priceData}>X {this.state.noDays}</AppText>
+            </View>
+          </View>
+
+          <View style={styles.costSecContainer}>
+            <View>
+              <AppText style={styles.priceData}>Government Tax</AppText>
+            </View>
+            <View>
+              <AppText style={styles.priceData}>US$ {this.state.tax}</AppText>
             </View>
           </View>
 
@@ -103,5 +105,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-start",
     padding: 5,
+  },
+  priceData: {
+    fontSize: 15,
   },
 });

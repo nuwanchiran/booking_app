@@ -29,7 +29,6 @@ export default class PaymentGateway extends Component {
 
         <ScrollView>
           <PaymentGatewayComponent parentCallback={this.callbackFunction} />
-          <AppText> {this.state.totPrice}</AppText>
         </ScrollView>
 
         {/* <Button

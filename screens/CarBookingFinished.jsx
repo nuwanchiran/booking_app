@@ -4,6 +4,11 @@ import Screen from "../components/Screen";
 import CarResult from "../components/CarRental/CarResult";
 import SearchCarComponent from "../components/CarRental/SearchCarComponent";
 import HotelOrCarSelectorCard from "../components/cards/HotelOrCarSelectorCard";
+import CarBookingFinishedComponent from "../components/CarRental/CarBookingFinishedComponent";
+import AppButton from "../common/AppButton";
+import { ScrollView } from "react-native-gesture-handler";
+import PickupDropOffComponent from "../components/CarRental/PickupDropOffComponent";
+import AppText from "../common/AppText";
 
 export default class CarBookingFinished extends Component {
   constructor(props) {
@@ -15,14 +20,28 @@ export default class CarBookingFinished extends Component {
     return (
       <Screen navigation={this.props.navigation}>
         <HotelOrCarSelectorCard type={"car"} />
-        <Text>Car Booking Finished</Text>
-        <Button
+        <ScrollView>
+          <CarBookingFinishedComponent />
+
+          <PickupDropOffComponent />
+          <View style={styles.thanksMsgView}>
+            <AppText style={styles.thanksMsgTxt}>
+              Thanks for booking with us...
+            </AppText>
+          </View>
+        </ScrollView>
+
+        <AppButton
+          title="Continue Searching"
+          color="primary"
           onPress={() => this.props.navigation.navigate("CarSearch")}
-          title="Done"
         />
       </Screen>
     );
   }
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  thanksMsgView: { alignItems: "center", padding: 20 },
+  thanksMsgTxt: { fontSize: 15 },
+});
