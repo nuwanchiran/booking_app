@@ -4,8 +4,7 @@ import AppText from "../common/AppText";
 import { AntDesign } from "@expo/vector-icons";
 import { StyleSheet, View } from "react-native";
 import {
-  ScrollView,
-  TouchableNativeFeedback,
+  ScrollView, TouchableNativeFeedback
 } from "react-native-gesture-handler";
 import Card from "../common/Card";
 import routes from "../navigations/routes";

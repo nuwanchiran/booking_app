@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import HotelList from "../screens/HotelList";
@@ -18,9 +17,3 @@ export default function HomeNavigator() {
   );
 }
 
-const styles = StyleSheet.create({
-  icon: {
-    left: 20,
-    height: "100%",
-  },
-});

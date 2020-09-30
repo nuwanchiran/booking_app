@@ -35,14 +35,14 @@ export default function AppButton({
           {buttonText()}
         </TouchableOpacity>
       ) : (
-        <TouchableNativeFeedback
-          style={[styles.btn, { backgroundColor: colors[color] }]}
-          onPress={onPress}
-        >
-          {icon && buttonIcon()}
-          {buttonText()}
-        </TouchableNativeFeedback>
-      )}
+          <TouchableNativeFeedback
+            style={[styles.btn, { backgroundColor: colors[color] }]}
+            onPress={onPress}
+          >
+            {icon && buttonIcon()}
+            {buttonText()}
+          </TouchableNativeFeedback>
+        )}
     </React.Fragment>
   );
 }

@@ -12,7 +12,7 @@ import AppFeedback from "../screens/AppFeedback";
 import CarRentalsNavigator from "./CarRentalsNavigator";
 import colors from "../config/colors";
 import { AntDesign } from "@expo/vector-icons";
-import HelpCenter from "../screens/HelpCenter";
+import HelpCenterNavigator from './HelpCenterNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -58,7 +58,7 @@ export default function AppNavigator() {
         />
         <Drawer.Screen
           name={routes.HelpCenter}
-          component={HelpCenter}
+          component={HelpCenterNavigator}
           options={{
             title: "Help Center",
             drawerIcon: ({ focused, size }) => (

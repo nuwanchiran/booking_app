@@ -2,6 +2,8 @@ export default Object.freeze({
   Home: "Home",
   GiftCard: "GiftCard",
   HelpCenter: "HelpCenter",
+  Questions: "Questions",
+  QuestionsAdd: "QuestionsAdd",
   HotelList: "HotelList",
   HotelDetails: "HotelDetails",
   CarRentals: "CarRentals",

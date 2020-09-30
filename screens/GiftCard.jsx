@@ -3,22 +3,31 @@ import { StyleSheet, ImageBackground, View } from "react-native";
 import AppButton from "../common/AppButton";
 import AppTextInput from "../common/AppTextInput";
 import Screen from "../components/Screen";
+import AwesomeAlert from 'react-native-awesome-alerts';
 
 export default function GiftCard({ navigation }) {
   const [no, setNo] = useState("");
   const [pin, setPin] = useState("");
-  const handleSubmit = () => {
-    if (no === "" || pin === "") {
-      alert("Please, Fill all columns");
-    } else {
-      alert("Gift added successfully");
-    }
-    setNo("");
-    setPin("");
-  };
+  const [alert, setAlert] = useState(false)
 
   return (
     <Screen navigation={navigation} title='Gift Card'>
+      <AwesomeAlert
+        show={alert}
+        showProgress={false}
+        title="Alert"
+        message={(no !== "" && pin !== "") ? "Message sent successfully" : "Please fill the form and resubmit"}
+        closeOnTouchOutside={true}
+        closeOnHardwareBackPress={false}
+        showConfirmButton={true}
+        confirmText="ok"
+        confirmButtonColor={(no !== "" && pin !== "") ? "green" : "#DD6B55"}
+        onConfirmPressed={() => {
+          setAlert(false)
+          setNo("");
+          setPin("");
+        }}
+      />
       <ImageBackground
         source={require("../assets/giftCard.jpg")}
         style={styles.image}
@@ -41,7 +50,7 @@ export default function GiftCard({ navigation }) {
             color='primary'
             icon='wallet'
             iconColor='light'
-            onPress={handleSubmit}
+            onPress={() => setAlert(true)}
           />
         </View>
       </ImageBackground>

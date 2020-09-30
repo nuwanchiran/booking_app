@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 import { FontAwesome } from "@expo/vector-icons";
@@ -15,6 +15,7 @@ export default function Card({
   reviews,
   height,
   marginNone,
+  logo
 }) {
   const star = rating / 1;
   const half = rating % 1;
@@ -24,13 +25,21 @@ export default function Card({
         styles.container,
         {
           flexDirection: rowMode ? "row" : "column",
-          minHeight: 100,
-          height: height,
           marginHorizontal: marginNone ? 0 : 20,
+          minHeight: height,
           marginVertical: marginNone ? 0 : 10,
         },
       ]}
     >
+      {logo && (
+        <Image
+          source={logo}
+          style={[
+            { height: height - 10 },
+            { width: height - 10 }
+          ]}
+        />
+      )}
       {image && (
         <ImageBackground
           source={image}
