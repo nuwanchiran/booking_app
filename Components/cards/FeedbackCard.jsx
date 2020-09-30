@@ -52,7 +52,7 @@ export default function Card({ rowMode, height }) {
     >
       {/* Feedback face icons row */}
       <View style={styles.feedbackIconsView}>
-        <View style={styles.imageRow}>
+        <View style={styles.imageRowFaces}>
           <TouchableOpacity style={styles.faceImgStyle}>
             <Image
               source={require("../../assets/appFeedback/feedback1.jpg")}
@@ -90,7 +90,7 @@ export default function Card({ rowMode, height }) {
 
       {/* Feedback type and submit view */}
       <View style={styles.feedbackIconsView}>
-        <View style={styles.imageRow}>
+        <View style={styles.imageRowTypes}>
           {/* <View style={{selectedFeedbackType == ""? borderWidth: 2, borderColor: "black" }}> */}
           <View
             style={
@@ -225,19 +225,21 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
 
-  imageRow: {
-    // flex: 1,
-    // display: "flex",
-    // flexDirection: "row",
-    // width: "100%",
-
+  imageRowFaces: {
     flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
     alignItems: "flex-start",
-    alignContent: "stretch",
+    alignContent: "flex-start",
     width: "100%",
-    //marginHorizontal: 20,
+    backgroundColor: "pink",
+  },
+  imageRowTypes: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    alignContent: "flex-start",
+    width: "100%",
+    backgroundColor: "pink",
   },
   faceImgStyle: {
     width: 64,
