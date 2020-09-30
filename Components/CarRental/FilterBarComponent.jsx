@@ -8,7 +8,7 @@ export default class FilterBarComponent extends Component {
     super();
     this.state = {
       name: props.isEnabled,
-      isEnabled: props.isEnabled,
+      isEnabled: false,
     };
   }
   toggleSwitch() {

@@ -11,7 +11,30 @@ import { Rating, AirbnbRating } from "react-native-ratings";
 export default class CarFilterComponent extends Component {
   constructor(props) {
     super();
-    this.state = {};
+    this.state = {
+      categoryArr: [
+        { name: "compact", status: false },
+        { name: "economy", status: false },
+        { name: "fullSize", status: false },
+        { name: "intermediate", status: false },
+        { name: "luxury", status: false },
+      ],
+
+      supplier: [
+        { name: "kangaroo", status: false },
+        { name: "deerLake", status: false },
+        { name: "taxiD", status: false },
+        { name: "yellowCab", status: false },
+      ],
+
+      vehicleType: [
+        { name: "petrol", status: false },
+        { name: "diesel", status: false },
+        { name: "hybrid", status: false },
+        { name: "pluginHybrid", status: false },
+        { name: "electric", status: false },
+      ],
+    };
   }
 
   setFromValue(val) {
@@ -49,115 +72,380 @@ export default class CarFilterComponent extends Component {
         </View>
 
         {/* Category - start */}
-        <FilterBarComponent name={"Category"} isEnabled={true} />
+        <FilterBarComponent name={"Category"} />
 
         <View style={styles.imagesContainerCategory}>
-          <TouchableOpacity style={styles.categoryTouStyle}>
-            <Image
-              source={require("../../assets/filter/category/compact.jpg")}
-              style={styles.catImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.categoryTouStyle}>
-            <Image
-              source={require("../../assets/filter/category/Economy.jpg")}
-              style={styles.catImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.categoryTouStyle}>
-            <Image
-              source={require("../../assets/filter/category/FullSize.jpg")}
-              style={styles.catImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.categoryTouStyle}>
-            <Image
-              source={require("../../assets/filter/category/Intermediate.jpg")}
-              style={styles.catImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.categoryTouStyle}>
-            <Image
-              source={require("../../assets/filter/category/Luxury.jpg")}
-              style={styles.catImgStyle}
-            />
-          </TouchableOpacity>
+          {/*  */}
+          <View
+            style={
+              this.state.categoryArr[0].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.categoryTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.categoryArr.map((obj) =>
+                  obj.name === "compact"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ categoryArr: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/category/compact.jpg")}
+                style={styles.catImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+          {/*  */}
+
+          <View
+            style={
+              this.state.categoryArr[1].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.categoryTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.categoryArr.map((obj) =>
+                  obj.name === "economy"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ categoryArr: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/category/Economy.jpg")}
+                style={styles.catImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={
+              this.state.categoryArr[2].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.categoryTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.categoryArr.map((obj) =>
+                  obj.name === "fullSize"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ categoryArr: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/category/FullSize.jpg")}
+                style={styles.catImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={
+              this.state.categoryArr[3].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.categoryTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.categoryArr.map((obj) =>
+                  obj.name === "intermediate"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ categoryArr: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/category/Intermediate.jpg")}
+                style={styles.catImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={
+              this.state.categoryArr[4].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.categoryTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.categoryArr.map((obj) =>
+                  obj.name === "luxury"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ categoryArr: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/category/Luxury.jpg")}
+                style={styles.catImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* Category - end */}
 
         {/* Supplier - start */}
 
-        <FilterBarComponent name={"Supplier"} isEnabled={true} />
+        <FilterBarComponent name={"Supplier"} />
         <View style={styles.imagesContainerCategory}>
-          <TouchableOpacity style={styles.suplierTouStyle}>
-            <Image
-              source={require("../../assets/filter/supplier/kangaroo.jpg")}
-              style={styles.supImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.suplierTouStyle}>
-            <Image
-              source={require("../../assets/filter/supplier/deerlake.jpg")}
-              style={styles.supImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.suplierTouStyle}>
-            <Image
-              source={require("../../assets/filter/supplier/taxid.jpg")}
-              style={styles.supImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.suplierTouStyle}>
-            <Image
-              source={require("../../assets/filter/supplier/yellowcab.jpg")}
-              style={styles.supImgStyle}
-            />
-          </TouchableOpacity>
+          <View
+            style={
+              this.state.supplier[0].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.suplierTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.supplier.map((obj) =>
+                  obj.name === "kangaroo"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ supplier: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/supplier/kangaroo.jpg")}
+                style={styles.supImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={
+              this.state.supplier[1].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.suplierTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.supplier.map((obj) =>
+                  obj.name === "deerLake"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ supplier: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/supplier/deerlake.jpg")}
+                style={styles.supImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={
+              this.state.supplier[2].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.suplierTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.supplier.map((obj) =>
+                  obj.name === "taxiD"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ supplier: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/supplier/taxid.jpg")}
+                style={styles.supImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={
+              this.state.supplier[3].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.suplierTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.supplier.map((obj) =>
+                  obj.name === "yellowCab"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ supplier: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/supplier/yellowcab.jpg")}
+                style={styles.supImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* Supplier - end */}
 
         {/* Vehicle Type - start */}
-        <FilterBarComponent name={"Vehicle Type"} isEnabled={true} />
+        <FilterBarComponent name={"Vehicle Type"} />
 
         <View style={styles.fuelContainerCategory}>
-          <TouchableOpacity style={styles.fuelTouStyle}>
-            <Image
-              source={require("../../assets/filter/fuel/petrol.jpg")}
-              style={styles.fuelImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.fuelTouStyle}>
-            <Image
-              source={require("../../assets/filter/fuel/diesel.jpg")}
-              style={styles.fuelImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.fuelTouStyle}>
-            <Image
-              source={require("../../assets/filter/fuel/hybrid.jpg")}
-              style={styles.fuelImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.fuelTouStyle}>
-            <Image
-              source={require("../../assets/filter/fuel/pluginhybrid.jpg")}
-              style={styles.fuelImgStyle}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.fuelTouStyle}>
-            <Image
-              source={require("../../assets/filter/fuel/electric.jpg")}
-              style={styles.fuelImgStyle}
-            />
-          </TouchableOpacity>
+          <View
+            style={
+              this.state.vehicleType[0].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.fuelTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.vehicleType.map((obj) =>
+                  obj.name === "petrol"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ vehicleType: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/fuel/petrol.jpg")}
+                style={styles.fuelImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={
+              this.state.vehicleType[1].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.fuelTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.vehicleType.map((obj) =>
+                  obj.name === "diesel"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ vehicleType: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/fuel/diesel.jpg")}
+                style={styles.fuelImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={
+              this.state.vehicleType[2].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.fuelTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.vehicleType.map((obj) =>
+                  obj.name === "hybrid"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ vehicleType: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/fuel/hybrid.jpg")}
+                style={styles.fuelImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={
+              this.state.vehicleType[3].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.fuelTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.vehicleType.map((obj) =>
+                  obj.name === "pluginHybrid"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ vehicleType: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/fuel/pluginhybrid.jpg")}
+                style={styles.fuelImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={
+              this.state.vehicleType[4].status == true
+                ? { borderWidth: 2, borderColor: "gray", borderRadius: 6 }
+                : {}
+            }
+          >
+            <TouchableOpacity
+              style={styles.fuelTouStyle}
+              onPress={() => {
+                const newItemsArr = this.state.vehicleType.map((obj) =>
+                  obj.name === "electric"
+                    ? { name: obj.name, status: !obj.status }
+                    : obj
+                );
+                this.setState({ vehicleType: newItemsArr });
+              }}
+            >
+              <Image
+                source={require("../../assets/filter/fuel/electric.jpg")}
+                style={styles.fuelImgStyle}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* Vehicle Type - end */}
 
         {/* Cost component - start */}
-        <FilterBarComponent name={"Cost($/km)"} isEnabled={true} />
+        <FilterBarComponent name={"Cost($/km)"} />
         <View>
           <RangeSlider
             min={0}
@@ -171,7 +459,7 @@ export default class CarFilterComponent extends Component {
 
         {/* Rating component - start */}
         <View style={{ marginTop: -50 }}>
-          <FilterBarComponent name={"Rating"} isEnabled={true} />
+          <FilterBarComponent name={"Rating"} />
           <View
             style={{
               // marginVertical: rowMode && 5,

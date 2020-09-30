@@ -97,7 +97,22 @@ export default class CarResult extends Component {
           ]}
         >
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("SelectedCar")}
+            // https://reactnavigation.org/docs/3.x/params/
+            onPress={() =>
+              this.props.navigation.navigate("SelectedCar", {
+                image: this.state.image,
+                driverPhoto: this.state.driverPhoto,
+                companyLogo: this.state.companyLogo,
+                initialPassengerArr: this.state.initialPassengerArr,
+                initialLuggageArr: this.state.initialLuggageArr,
+                carName: this.state.carName,
+                carRating: this.state.carRating,
+                driverName: this.state.driverName,
+                driverRating: this.state.driverRating,
+                price: this.state.price,
+                token: this.state.token,
+              })
+            }
             // style={{ backgroundColor: "gray" }}
           >
             <View style={styles.nameRatingHeartContainer}>

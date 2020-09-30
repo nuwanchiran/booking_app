@@ -36,7 +36,6 @@ export default function Card({ rowMode, height }) {
     return {
       borderWidth: 2,
       borderColor: "black",
-      // background: randomColor(),
     };
   };
 
