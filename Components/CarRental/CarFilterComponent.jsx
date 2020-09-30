@@ -34,18 +34,57 @@ export default class CarFilterComponent extends Component {
         { name: "pluginHybrid", status: false },
         { name: "electric", status: false },
       ],
+      fromVal: 0,
+      toVal: 100,
+      rating: 3,
     };
   }
 
   setFromValue(val) {
-    console.log("from" + val);
+    // console.log("from" + val);
+    this.setState({ fromVal: val });
   }
   setToValue(val) {
-    console.log("to" + val);
+    // console.log("to" + val);
+    this.setState({ toVal: val });
   }
   ratingCompleted(rating) {
     console.log("Rating is: " + rating);
   }
+
+  handleAnyCategory = (isSelected, currentName) => {
+    const newItemsArr = this.state.categoryArr.map((obj) =>
+      obj.name !== "" ? { name: obj.name, status: isSelected } : obj
+    );
+    this.setState({ categoryArr: newItemsArr });
+  };
+
+  handleAnySupplier = (isSelected, currentName) => {
+    const newItemsArr = this.state.supplier.map((obj) =>
+      obj.name !== "" ? { name: obj.name, status: isSelected } : obj
+    );
+    this.setState({ supplier: newItemsArr });
+  };
+
+  handleAnyVehicleType = (isSelected, currentName) => {
+    const newItemsArr = this.state.vehicleType.map((obj) =>
+      obj.name !== "" ? { name: obj.name, status: isSelected } : obj
+    );
+    this.setState({ vehicleType: newItemsArr });
+  };
+
+  handleAnyRating = (isSelected, currentName) => {
+    this.setState({
+      rating: 0,
+    });
+  };
+
+  handleAnyCost = (isSelected, currentName) => {
+    this.setState({
+      fromVal: 0,
+      toVal: 100,
+    });
+  };
 
   render() {
     return (
@@ -53,9 +92,7 @@ export default class CarFilterComponent extends Component {
         style={[
           styles.container,
           {
-            // flexDirection: rowMode ? "row" : "column",
             minHeight: 80,
-            // height: height,
             backgroundColor: "white",
           },
         ]}
@@ -72,7 +109,10 @@ export default class CarFilterComponent extends Component {
         </View>
 
         {/* Category - start */}
-        <FilterBarComponent name={"Category"} />
+        <FilterBarComponent
+          name={"Category"}
+          onSelectAny={this.handleAnyCategory}
+        />
 
         <View style={styles.imagesContainerCategory}>
           {/*  */}
@@ -207,7 +247,10 @@ export default class CarFilterComponent extends Component {
 
         {/* Supplier - start */}
 
-        <FilterBarComponent name={"Supplier"} />
+        <FilterBarComponent
+          name={"Supplier"}
+          onSelectAny={this.handleAnySupplier}
+        />
         <View style={styles.imagesContainerCategory}>
           <View
             style={
@@ -313,7 +356,10 @@ export default class CarFilterComponent extends Component {
         {/* Supplier - end */}
 
         {/* Vehicle Type - start */}
-        <FilterBarComponent name={"Vehicle Type"} />
+        <FilterBarComponent
+          name={"Vehicle Type"}
+          onSelectAny={this.handleAnyVehicleType}
+        />
 
         <View style={styles.fuelContainerCategory}>
           <View
@@ -445,21 +491,28 @@ export default class CarFilterComponent extends Component {
         {/* Vehicle Type - end */}
 
         {/* Cost component - start */}
-        <FilterBarComponent name={"Cost($/km)"} />
+        <FilterBarComponent
+          name={"Cost($/km)"}
+          onSelectAny={this.handleAnyCost}
+        />
         <View>
           <RangeSlider
             min={0}
             max={100}
             fromValueOnChange={(value) => this.setFromValue(value)}
             toValueOnChange={(value) => this.setToValue(value)}
-            initialFromValue={0}
+            initialFromValue={this.state.fromVal}
+            initialToValue={this.state.toVal}
           />
         </View>
         {/* Cost component - end */}
 
-        {/* Rating component - start */}
+        {/* Rating component - start  */}
         <View style={{ marginTop: -50 }}>
-          <FilterBarComponent name={"Rating"} />
+          <FilterBarComponent
+            name={"Rating"}
+            onSelectAny={this.handleAnyRating}
+          />
           <View
             style={{
               // marginVertical: rowMode && 5,
@@ -470,7 +523,7 @@ export default class CarFilterComponent extends Component {
             }}
           >
             <View style={{ marginTop: -25 }}>
-              <AirbnbRating />
+              <AirbnbRating defaultRating={this.state.rating} />
             </View>
           </View>
         </View>

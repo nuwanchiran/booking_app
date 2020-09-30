@@ -7,12 +7,19 @@ export default class FilterBarComponent extends Component {
   constructor(props) {
     super();
     this.state = {
-      name: props.isEnabled,
+      name: props.name,
       isEnabled: false,
     };
   }
   toggleSwitch() {
-    this.setState({ isEnabled: !this.state.isEnabled });
+    this.setState({ isEnabled: !this.state.isEnabled }, () => {
+      // Do something here.
+      var isSelected = this.state.isEnabled;
+      var currentName = this.state.name;
+      this.props.onSelectAny(isSelected, currentName);
+    });
+
+    // this.setState({ isEnabled: !this.state.isEnabled });
   }
 
   render() {
@@ -20,7 +27,7 @@ export default class FilterBarComponent extends Component {
       <View>
         <View style={styles.mainContainer}>
           <View style={styles.titleView}>
-            {/* Left side - start */}
+            {/* Left side - start  */}
             <AppText
               style={{ fontWeight: "bold", fontSize: 20, paddingLeft: 10 }}
             >
