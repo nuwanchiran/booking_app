@@ -22,20 +22,37 @@ export default class CarResult extends Component {
     super();
     this.state = {
       image:
-        "https://firebasestorage.googleapis.com/v0/b/ueeproject-63bc8.appspot.com/o/images%2Fcars%2Fbmw%2Fbmw1.jpg?alt=media&token=59ee2db3-92b0-46f0-8cce-40368ccbc1a7",
+        "https://firebasestorage.googleapis.com/v0/b/ueeproject-63bc8.appspot.com/o/images%2Fcars%2FcarLoading.jpg?alt=media&token=620009e8-1edc-469b-b56b-13600c16f7f2",
       driverPhoto:
-        "https://firebasestorage.googleapis.com/v0/b/ueeproject-63bc8.appspot.com/o/images%2Fdriver%2Fdriver1.jpg?alt=media&token=2e801479-eba9-4975-93fa-ddd6c7cafe7e",
+        "https://firebasestorage.googleapis.com/v0/b/ueeproject-63bc8.appspot.com/o/images%2Floading%2Fperson.png?alt=media&token=db634ce2-10f9-4e56-a8e4-caaacc66172a",
       companyLogo:
-        "https://firebasestorage.googleapis.com/v0/b/ueeproject-63bc8.appspot.com/o/images%2FcompanyLogos%2Fkangaroo.jpg?alt=media&token=718fefce-369f-4423-bfbd-18d722806cf0",
+        "https://firebasestorage.googleapis.com/v0/b/ueeproject-63bc8.appspot.com/o/images%2Floading%2Fload.jpg?alt=media&token=21e27402-7824-4e3c-a30a-c70f7ff42636",
 
-      initialPassengerArr: [{}, {}],
-      initialLuggageArr: [{}, {}],
+      initialPassengerArr: [],
+      initialLuggageArr: [],
 
-      carName: "BMW 3 Series",
-      carRating: "9.0/10",
-      driverName: "Mr. Perera",
-      driverRating: 4,
+      carName: "",
+      carRating: "",
+      driverName: "",
+      driverRating: 0,
+      price: "0.00",
+      token: 0,
     };
+  }
+  componentDidMount() {
+    this.setState({
+      carName: this.props.carName,
+      carRating: this.props.carRating,
+      driverName: this.props.driverName,
+      driverRating: this.props.driverRating,
+      initialPassengerArr: this.props.initialPassengerArr,
+      initialLuggageArr: this.props.initialLuggageArr,
+      image: this.props.image,
+      driverPhoto: this.props.driverPhoto,
+      companyLogo: this.props.companyLogo,
+      price: this.props.price,
+      token: this.props.token,
+    });
   }
 
   navigate() {
