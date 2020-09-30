@@ -37,7 +37,7 @@ export default class SearchCarComponent extends Component {
           styles.container,
           {
             // flexDirection: rowMode ? "row" : "column",
-            minHeight: 100,
+            // minHeight: 100,
             // height: height,
           },
         ]}
@@ -47,6 +47,7 @@ export default class SearchCarComponent extends Component {
             <View style={styles.returnToSameLocTextView}>
               <AppText>Return to same location</AppText>
             </View>
+
             <View style={styles.returnToSameLocTick}>
               <CheckBox
                 value={this.state.isSelected}
@@ -54,6 +55,23 @@ export default class SearchCarComponent extends Component {
                 style={styles.checkboxcust}
               />
             </View>
+          </View>
+          <View>
+            {/* <View onPress={showDatepicker}>Date</View>
+            <View onPress={showTimepicker}>Time</View> */}
+
+            {/* <View>
+              {show && (
+                <DateTimePicker
+                  testID="dateTimePicker"
+                  value={date}
+                  mode={mode}
+                  is24Hour={true}
+                  display="default"
+                  onChange={this.onChange}
+                />
+              )}
+            </View> */}
           </View>
           <View>
             <RangeSlider
