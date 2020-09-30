@@ -26,6 +26,7 @@ export default class SelectedCar extends Component {
         <ProgressBarCard />
 
         <ScrollView>
+          {/* <Text>CarNAme: {JSON.stringify(carName)}</Text> */}
           <SelectedCarDetailsComponent />
           <PickupDropOffComponent />
           <CarRatingComponent />

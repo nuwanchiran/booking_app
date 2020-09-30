@@ -44,6 +44,7 @@ export default class CarSearchResults extends Component {
             driverName={"Mr. Perera"}
             driverRating={4}
             price="20.23"
+            token={2}
           />
 
           <CarResult
@@ -64,6 +65,7 @@ export default class CarSearchResults extends Component {
             driverName={"Mr. Silva"}
             driverRating={5}
             price="14.63"
+            token={2}
           />
           <CarResult
             navigation={this.props.navigation}
@@ -83,6 +85,7 @@ export default class CarSearchResults extends Component {
             driverName={"Mr. John"}
             driverRating={5}
             price="25.23"
+            token={3}
           />
         </ScrollView>
       </Screen>
