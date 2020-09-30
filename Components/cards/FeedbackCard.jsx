@@ -11,6 +11,11 @@ import { Dialog } from "react-native-simple-dialogs";
 export default function Card({ rowMode, height }) {
   const [selectedFeedbackType, setFeedbackType] = useState("");
   const [dialogVisible, setDialogVisible] = useState(false);
+  const [feedback1, setFeedback1] = useState(false);
+  const [feedback2, setFeedback2] = useState(false);
+  const [feedback3, setFeedback3] = useState(false);
+  const [feedback4, setFeedback4] = useState(false);
+  const [feedback5, setFeedback5] = useState(false);
 
   const pressComplaint = () => {
     setFeedbackType((selectedFeedbackType) => "Write a complaint");
@@ -32,11 +37,51 @@ export default function Card({ rowMode, height }) {
     setDialogVisible((dialogVisible) => true);
   };
 
-  const jewelStyle = function () {
-    return {
-      borderWidth: 2,
-      borderColor: "black",
-    };
+  // const jewelStyle = function () {
+  //   return {
+  //     borderWidth: 2,
+  //     borderColor: "black",
+  //   };
+  // };
+
+  const onPressFeedback1 = () => {
+    setFeedback1((feedback1) => !feedback1);
+    setFeedback2((feedback2) => false);
+    setFeedback3((feedback3) => false);
+    setFeedback4((feedback4) => false);
+    setFeedback5((feedback5) => false);
+  };
+
+  const onPressFeedback2 = () => {
+    setFeedback1((feedback1) => false);
+    setFeedback2((feedback2) => !feedback2);
+    setFeedback3((feedback3) => false);
+    setFeedback4((feedback4) => false);
+    setFeedback5((feedback5) => false);
+  };
+
+  const onPressFeedback3 = () => {
+    setFeedback1((feedback1) => false);
+    setFeedback2((feedback2) => false);
+    setFeedback3((feedback3) => !feedback3);
+    setFeedback4((feedback4) => false);
+    setFeedback5((feedback5) => false);
+  };
+
+  const onPressFeedback4 = () => {
+    setFeedback1((feedback1) => false);
+    setFeedback2((feedback2) => false);
+    setFeedback3((feedback3) => false);
+    setFeedback4((feedback4) => !feedback4);
+    setFeedback5((feedback5) => false);
+  };
+
+  const onPressFeedback5 = () => {
+    setFeedback1((feedback1) => false);
+    setFeedback2((feedback2) => false);
+    setFeedback3((feedback3) => false);
+    setFeedback4((feedback4) => false);
+    setFeedback5((feedback5) => !feedback5);
   };
 
   return (
@@ -53,37 +98,99 @@ export default function Card({ rowMode, height }) {
       {/* Feedback face icons row */}
       <View style={styles.feedbackIconsView}>
         <View style={styles.imageRowFaces}>
-          <TouchableOpacity style={styles.faceImgStyle}>
-            <Image
-              source={require("../../assets/appFeedback/feedback1.jpg")}
-              style={styles.faceImgStyle}
-            />
+          <TouchableOpacity onPress={onPressFeedback1}>
+            {!feedback1 && (
+              <View>
+                <Image
+                  source={require("../../assets/appFeedback/feedback1.jpg")}
+                  style={styles.faceImgStyle}
+                />
+              </View>
+            )}
+            {feedback1 && (
+              <View>
+                <Image
+                  source={require("../../assets/appFeedback/feedback1-selected.jpg")}
+                  style={styles.faceImgStyle}
+                />
+              </View>
+            )}
           </TouchableOpacity>
 
-          <TouchableOpacity>
-            <Image
-              source={require("../../assets/appFeedback/feedback2.jpg")}
-              style={styles.faceImgStyle}
-            />
+          <TouchableOpacity onPress={onPressFeedback2}>
+            {!feedback2 && (
+              <View>
+                <Image
+                  source={require("../../assets/appFeedback/feedback2.jpg")}
+                  style={styles.faceImgStyle}
+                />
+              </View>
+            )}
+            {feedback2 && (
+              <View>
+                <Image
+                  source={require("../../assets/appFeedback/feedback2-selected.jpg")}
+                  style={styles.faceImgStyle}
+                />
+              </View>
+            )}
           </TouchableOpacity>
 
-          <TouchableOpacity>
-            <Image
-              source={require("../../assets/appFeedback/feedback3.jpg")}
-              style={styles.faceImgStyle}
-            />
+          <TouchableOpacity onPress={onPressFeedback3}>
+            {!feedback3 && (
+              <View>
+                <Image
+                  source={require("../../assets/appFeedback/feedback3.jpg")}
+                  style={styles.faceImgStyle}
+                />
+              </View>
+            )}
+            {feedback3 && (
+              <View>
+                <Image
+                  source={require("../../assets/appFeedback/feedback3-selected.jpg")}
+                  style={styles.faceImgStyle}
+                />
+              </View>
+            )}
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Image
-              source={require("../../assets/appFeedback/feedback4.jpg")}
-              style={styles.faceImgStyle}
-            />
+
+          <TouchableOpacity onPress={onPressFeedback4}>
+            {!feedback4 && (
+              <View>
+                <Image
+                  source={require("../../assets/appFeedback/feedback4.jpg")}
+                  style={styles.faceImgStyle}
+                />
+              </View>
+            )}
+            {feedback4 && (
+              <View>
+                <Image
+                  source={require("../../assets/appFeedback/feedback4-selected.jpg")}
+                  style={styles.faceImgStyle}
+                />
+              </View>
+            )}
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Image
-              source={require("../../assets/appFeedback/feedback5.jpg")}
-              style={styles.faceImgStyle}
-            />
+
+          <TouchableOpacity onPress={onPressFeedback5}>
+            {!feedback5 && (
+              <View>
+                <Image
+                  source={require("../../assets/appFeedback/feedback5.jpg")}
+                  style={styles.faceImgStyle}
+                />
+              </View>
+            )}
+            {feedback5 && (
+              <View>
+                <Image
+                  source={require("../../assets/appFeedback/feedback5-selected.jpg")}
+                  style={styles.faceImgStyle}
+                />
+              </View>
+            )}
           </TouchableOpacity>
         </View>
       </View>
@@ -231,7 +338,6 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     alignContent: "flex-start",
     width: "100%",
-    backgroundColor: "pink",
   },
   imageRowTypes: {
     flexDirection: "row",
@@ -239,7 +345,6 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     alignContent: "flex-start",
     width: "100%",
-    backgroundColor: "pink",
   },
   faceImgStyle: {
     width: 64,
@@ -250,8 +355,6 @@ const styles = StyleSheet.create({
     width: 79,
     height: 90,
     borderRadius: 5,
-    // borderWidth: 2,
-    // borderColor: "black",
   },
   textareaContainer: {
     height: 180,
@@ -260,7 +363,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   textarea: {
-    textAlignVertical: "top", // hack android
+    textAlignVertical: "top",
     height: 170,
     fontSize: 14,
     color: "#333",
