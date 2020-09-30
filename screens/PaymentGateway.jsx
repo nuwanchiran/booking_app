@@ -8,6 +8,7 @@ import PaymentGatewayComponent from "../components/CarRental/PaymentGatewayCompo
 import { ScrollView } from "react-native-gesture-handler";
 import AppButton from "../common/AppButton";
 import AppText from "../common/AppText";
+import ProgressBarCard from "../components/cards/ProgressBarCard";
 
 export default class PaymentGateway extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class PaymentGateway extends Component {
     return (
       <Screen navigation={this.props.navigation}>
         <HotelOrCarSelectorCard type={"car"} />
-
+        <ProgressBarCard />
         <ScrollView>
           <PaymentGatewayComponent parentCallback={this.callbackFunction} />
         </ScrollView>

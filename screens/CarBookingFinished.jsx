@@ -9,6 +9,7 @@ import AppButton from "../common/AppButton";
 import { ScrollView } from "react-native-gesture-handler";
 import PickupDropOffComponent from "../components/CarRental/PickupDropOffComponent";
 import AppText from "../common/AppText";
+import ProgressBarCard from "../components/cards/ProgressBarCard";
 
 export default class CarBookingFinished extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export default class CarBookingFinished extends Component {
     return (
       <Screen navigation={this.props.navigation}>
         <HotelOrCarSelectorCard type={"car"} />
+        <ProgressBarCard />
         <ScrollView>
           <CarBookingFinishedComponent />
 

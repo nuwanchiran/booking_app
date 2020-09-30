@@ -24,7 +24,6 @@ export default class SelectedCar extends Component {
       <Screen navigation={this.props.navigation}>
         <HotelOrCarSelectorCard type={"car"} />
         <ProgressBarCard />
-        <Text>Selected Car </Text>
 
         <ScrollView>
           <SelectedCarDetailsComponent />

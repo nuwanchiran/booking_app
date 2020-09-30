@@ -28,7 +28,13 @@ export default class CarResult extends Component {
       companyLogo:
         "https://firebasestorage.googleapis.com/v0/b/ueeproject-63bc8.appspot.com/o/images%2FcompanyLogos%2Fkangaroo.jpg?alt=media&token=718fefce-369f-4423-bfbd-18d722806cf0",
 
-      initialArr: [{}, {}],
+      initialPassengerArr: [{}, {}],
+      initialLuggageArr: [{}, {}],
+
+      carName: "BMW 3 Series",
+      carRating: "9.0/10",
+      driverName: "Mr. Perera",
+      driverRating: 4,
     };
   }
 
@@ -37,11 +43,24 @@ export default class CarResult extends Component {
   }
 
   renderPassengers() {
-    return this.state.initialArr.map((item, i) => {
+    return this.state.initialPassengerArr.map((item, i) => {
       return (
         <TouchableHighlight key={i}>
           <Image
             source={require("../../assets/carSearchResults/man.png")}
+            style={styles.iconStyles}
+          />
+        </TouchableHighlight>
+      );
+    });
+  }
+
+  renderLuggage() {
+    return this.state.initialLuggageArr.map((item, i) => {
+      return (
+        <TouchableHighlight key={i}>
+          <Image
+            source={require("../../assets/carSearchResults/luggage.png")}
             style={styles.iconStyles}
           />
         </TouchableHighlight>
@@ -74,7 +93,9 @@ export default class CarResult extends Component {
                 />
               </View>
               <View style={styles.nameContainer}>
-                <AppText style={styles.vehicleNametxt}>BMW 3 Series</AppText>
+                <AppText style={styles.vehicleNametxt}>
+                  {this.state.carName}
+                </AppText>
               </View>
               <View style={styles.ratingContainer}>
                 <AppText
@@ -88,11 +109,11 @@ export default class CarResult extends Component {
                     marginBottom: 10,
                   }}
                 >
-                  9.0/10
+                  {this.state.carRating}
                 </AppText>
               </View>
               <View style={styles.heartContainer}>
-                {/* <Text>Hea</Text> */}
+                {/* <Text></Text> */}
 
                 <TouchableOpacity style={{ paddingLeft: 5 }}>
                   <Image
@@ -169,7 +190,9 @@ export default class CarResult extends Component {
                     />
                   </View>
                   <View style={styles.singleRowDesc}>
-                    <AppText style={styles.descText}>Mr. Perera</AppText>
+                    <AppText style={styles.descText}>
+                      {this.state.driverName}
+                    </AppText>
                   </View>
                   <View style={styles.singleRowDesc}>
                     <View style={{ marginLeft: "25%" }}>
@@ -190,7 +213,7 @@ export default class CarResult extends Component {
                       disabled={false}
                       maxStars={5}
                       starSize={20}
-                      rating={4}
+                      rating={this.state.driverRating}
                       fullStarColor={"gold"}
                       // selectedStar={(rating) => this.onStarRatingPress(rating)}
                     />
@@ -202,32 +225,16 @@ export default class CarResult extends Component {
               <AppText style={{ fontSize: 15 }}>Suitable for: </AppText>
 
               {this.renderPassengers()}
+              {this.renderLuggage()}
 
               {/* <Image
-                source={require("../../assets/carSearchResults/man.png")}
-                style={styles.iconStyles}
-              />
-
-              <Image
-                source={require("../../assets/carSearchResults/man.png")}
+                source={require("../../assets/carSearchResults/luggage.png")}
                 style={styles.iconStyles}
               />
               <Image
-                source={require("../../assets/carSearchResults/man.png")}
-                style={styles.iconStyles}
-              />
-              <Image
-                source={require("../../assets/carSearchResults/man.png")}
+                source={require("../../assets/carSearchResults/luggage.png")}
                 style={styles.iconStyles}
               /> */}
-              <Image
-                source={require("../../assets/carSearchResults/luggage.png")}
-                style={styles.iconStyles}
-              />
-              <Image
-                source={require("../../assets/carSearchResults/luggage.png")}
-                style={styles.iconStyles}
-              />
             </View>
             <View style={styles.priceView}>
               <StyledText
