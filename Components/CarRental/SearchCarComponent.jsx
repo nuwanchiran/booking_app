@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { CheckBox, Button, Text, StyleSheet, View } from "react-native";
+import {
+  CheckBox,
+  Button,
+  Text,
+  StyleSheet,
+  View,
+  TextInput,
+  Image,
+} from "react-native";
 import colors from "../../config/colors";
 import AppButton from "../../common/AppButton";
 import AppText from "../../common/AppText";
@@ -56,22 +64,22 @@ export default class SearchCarComponent extends Component {
               />
             </View>
           </View>
-          <View>
-            {/* <View onPress={showDatepicker}>Date</View>
-            <View onPress={showTimepicker}>Time</View> */}
+          <View style={styles.searchSection}>
+            <Image
+              source={require("../../assets/search/location.png")} //Change your icon image here
+              style={{ width: 50, height: 50, borderRadius: 10 }}
+            />
 
-            {/* <View>
-              {show && (
-                <DateTimePicker
-                  testID="dateTimePicker"
-                  value={date}
-                  mode={mode}
-                  is24Hour={true}
-                  display="default"
-                  onChange={this.onChange}
-                />
-              )}
-            </View> */}
+            <TextInput
+              style={styles.input}
+              autoFocus={true}
+              // inlineImageLeft='search'
+              // inlineImagePadding={5}
+              placeHolder="Search Product"
+              placeholderTextColor="gray"
+              // onChangeText={ (text) => this.setState({text})}
+              // value = {this.state.text}
+            />
           </View>
           <View>
             <RangeSlider
@@ -143,4 +151,26 @@ const styles = StyleSheet.create({
 
   anyAgeTextView: { flexGrow: 1, paddingTop: 15, paddingLeft: 10 },
   AnyAgeTickView: { flexGrow: 0 },
+
+  searchSection: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f8f4f4",
+  },
+  searchIcon: {
+    padding: 10,
+  },
+  input: {
+    flex: 1,
+    paddingTop: 10,
+    paddingRight: 10,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    borderRadius: 10,
+    borderColor: "black",
+    color: "#424242",
+    backgroundColor: "#dddddd",
+  },
 });

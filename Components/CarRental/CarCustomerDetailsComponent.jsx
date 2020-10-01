@@ -14,7 +14,6 @@ import ProgressBar from "react-native-progress/Bar";
 import { AwesomeTextInput } from "react-native-awesome-text-input";
 import Textarea from "react-native-textarea";
 import PhoneInput from "react-native-phone-input";
-import ModalPickerImage from "./ModalPickerImage";
 // import PhoneInput from "react-phone-number-input/react-native-input";
 
 export default class CarCustomerDetailsComponent extends Component {
