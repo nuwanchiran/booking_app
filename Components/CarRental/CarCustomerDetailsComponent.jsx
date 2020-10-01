@@ -13,18 +13,27 @@ import colors from "../../config/colors";
 import ProgressBar from "react-native-progress/Bar";
 import { AwesomeTextInput } from "react-native-awesome-text-input";
 import Textarea from "react-native-textarea";
+import PhoneInput from "react-native-phone-input";
+import ModalPickerImage from "./ModalPickerImage";
+// import PhoneInput from "react-phone-number-input/react-native-input";
 
 export default class CarCustomerDetailsComponent extends Component {
   constructor(props) {
     super();
+
     this.state = {
-      isSelected: false,
+      valid: "",
+      type: "",
+      value: "",
     };
-    this.setSelected = this.setSelected.bind(this);
   }
 
-  setSelected() {
-    this.setState({ isSelected: !this.state.isSelected });
+  onPressFlag() {
+    this.myCountryPicker.open();
+  }
+
+  selectCountry(country) {
+    this.phone.selectCountry(country.iso2);
   }
 
   render() {
@@ -77,6 +86,15 @@ export default class CarCustomerDetailsComponent extends Component {
             <View style={{ padding: 10 }}>
               <AwesomeTextInput label="ID Number" />
             </View>
+            <View style={{ padding: 10 }}>
+              <PhoneInput
+                ref={(ref) => {
+                  this.phone = ref;
+                }}
+              />
+            </View>
+
+            {/* https://www.npmjs.com/package/react-native-phone-input */}
 
             <View style={{ padding: 10 }}>
               <Textarea
