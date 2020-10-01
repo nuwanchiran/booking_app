@@ -3,12 +3,14 @@ import { Image, StyleSheet, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import AppText from "../common/AppText";
 import Card from "../common/Card";
+import Map from '../common/Map';
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 
+
 export default function HotelDetails({ navigation, route }) {
   const { hotel } = route.params;
-  const { title, image, price, rating, reviews, description, address } = hotel;
+  const { title, image, price, rating, reviews, description, address, latitude, longitude } = hotel;
   return (
     <Screen navigation={navigation} title='Hotel Details' goBack>
       <ScrollView styles={styles.details}>
@@ -21,6 +23,9 @@ export default function HotelDetails({ navigation, route }) {
         />
         <Card title='Description' subTitle={description} />
         <Card title='Address' subTitle={address} />
+
+        <Map latitude={latitude} longitude={longitude} />
+
         <View style={{ backgroundColor: "#ddd" }}>
           <AppText
             style={{
@@ -46,5 +51,4 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 320,
   },
-  details: {},
 });

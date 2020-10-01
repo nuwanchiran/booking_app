@@ -5,26 +5,11 @@ import HorizontalScrollView from "../components/HorizontalScrollView";
 import Screen from "../components/Screen";
 import { ScrollView } from "react-native-gesture-handler";
 import SoakUpTheSun from "../dataset/soakUpTheSun";
-import MapView from "react-native-maps";
 
-const data = [
-  { user: "lskadjfl", review: "sadjfklasdhfj" },
-  { user: "lskadjfl", review: "sadjfklasdhfj" },
-  { user: "lskadjfl", review: "sadjfklasdhfj" },
-];
 export default function Home({ navigation }) {
   return (
     <Screen navigation={navigation}>
       <ScrollView>
-        {/* <Text>Home</Text>
-        <Button
-          onPress={() => navigation.navigate("GiftCard")}
-          title='Go to GiftCard screen'
-        />
-        <Button
-          onPress={() => navigation.navigate("HotelList")}
-          title='Hotel List'
-        /> */}
         <Card image={require("../assets/paris.jpg")} label="Today's special" />
         <HorizontalScrollView
           title='Soak up the sun'
@@ -36,4 +21,6 @@ export default function Home({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+
+});

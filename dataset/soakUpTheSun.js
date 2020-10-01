@@ -9,6 +9,8 @@ export default [{
         address: "lajsdkfsdf  sdfjksad fjskdfsd sdfasdfsad",
         description: "jdkslafdsnsdvdaslvjsd sdafdsfjhsdkla fsdkf sdjfhsdkjlhf sdfskdjhskdljf hsdfhskdjfhsdfksdjhf sdfhsdlfjk sdhkjfdskjfhsndlkfjhds adsfh sdjkhfkj dskjlfhsdflkjhsdfsdkjhf",
         rating: 4.2,
+        latitude: 8.5874,
+        longitude: 81.2152,
         reviews: [{
             user: "lskadjfl",
             review: "sadjfklasdhfj"
@@ -39,6 +41,8 @@ export default [{
         address: "lajsdkfsdf  sdfjksad fjskdfsd sdfasdfsad",
         description: "jdkslafdsnsdvdaslvjsd sdafdsfjhsdkla fsdkf sdjfhsdkjlhf sdfskdjhskdljf hsdfhskdjfhsdfksdjhf sdfhsdlfjk sdhkjfdskjfhsndlkfjhds adsfh sdjkhfkj dskjlfhsdflkjhsdfsdkjhf",
         rating: 4.5,
+        latitude: 8.5874,
+        longitude: 81.2152,
         reviews: [{
             user: "lskadjfl",
             review: "sadjfklasdhfj"
@@ -85,6 +89,8 @@ export default [{
         address: "lajsdkfsdf  sdfjksad fjskdfsd sdfasdfsad",
         description: "jdkslafdsnsdvdaslvjsd sdafdsfjhsdkla fsdkf sdjfhsdkjlhf sdfskdjhskdljf hsdfhskdjfhsdfksdjhf sdfhsdlfjk sdhkjfdskjfhsndlkfjhds adsfh sdjkhfkj dskjlfhsdflkjhsdfsdkjhf",
         rating: 3.0,
+        latitude: 8.5874,
+        longitude: 81.2152,
         reviews: [{
             user: "lskadjfl",
             review: "sadjfklasdhfj"
@@ -112,6 +118,8 @@ export default [{
         address: "lajsdkfsdf  sdfjksad fjskdfsd sdfasdfsad",
         description: "jdkslafdsnsdvdaslvjsd sdafdsfjhsdkla fsdkf sdjfhsdkjlhf sdfskdjhskdljf hsdfhskdjfhsdfksdjhf sdfhsdlfjk sdhkjfdskjfhsndlkfjhds adsfh sdjkhfkj dskjlfhsdflkjhsdfsdkjhf",
         rating: 3.9,
+        latitude: 6.0243,
+        longitude: 80.7941,
         reviews: [{
             user: "lskadjfl",
             review: "sadjfklasdhfj"
@@ -134,6 +142,8 @@ export default [{
         address: "lajsdkfsdf  sdfjksad fjskdfsd sdfasdfsad",
         description: "jdkslafdsnsdvdaslvjsd sdafdsfjhsdkla fsdkf sdjfhsdkjlhf sdfskdjhskdljf hsdfhskdjfhsdfksdjhf sdfhsdlfjk sdhkjfdskjfhsndlkfjhds adsfh sdjkhfkj dskjlfhsdflkjhsdfsdkjhf",
         rating: 4.0,
+        latitude: 6.0243,
+        longitude: 80.7941,
         reviews: [{
             user: "lskadjfl",
             review: "sadjfklasdhfj"
@@ -156,6 +166,8 @@ export default [{
         address: "lajsdkfsdf  sdfjksad fjskdfsd sdfasdfsad",
         description: "jdkslafdsnsdvdaslvjsd sdafdsfjhsdkla fsdkf sdjfhsdkjlhf sdfskdjhskdljf hsdfhskdjfhsdfksdjhf sdfhsdlfjk sdhkjfdskjfhsndlkfjhds adsfh sdjkhfkj dskjlfhsdflkjhsdfsdkjhf",
         rating: 4.7,
+        latitude: 6.0243,
+        longitude: 80.7941,
         reviews: [{
             user: "lskadjfl",
             review: "sadjfklasdhfj"
