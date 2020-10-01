@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Button, Text, StyleSheet, View } from "react-native";
 import Screen from "../components/Screen";
+import HotelOrCarSelectorCard from "../components/cards/HotelOrCarSelectorCard";
 import SearchCarComponent from "../components/CarRental/SearchCarComponent";
+import SearchCarHistoryComponent from "../components/CarRental/SearchCarHistoryComponent";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default class CarSearch extends Component {
   constructor(props) {
@@ -12,14 +15,14 @@ export default class CarSearch extends Component {
   render() {
     return (
       <Screen navigation={this.props.navigation}>
-        <Text>CarSearch</Text>
-
-        <SearchCarComponent navigation={this.props.navigation} />
-
-        {/* <Button
-          onPress={() => this.props.navigation.goBack()}
-          title="Go back home"
-        /> */}
+        <HotelOrCarSelectorCard
+          navigation={this.props.navigation}
+          type={"car"}
+        />
+        <ScrollView>
+          <SearchCarComponent navigation={this.props.navigation} />
+          <SearchCarHistoryComponent navigation={this.props.navigation} />
+        </ScrollView>
       </Screen>
     );
   }

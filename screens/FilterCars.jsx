@@ -3,6 +3,8 @@ import { Button, Text, StyleSheet, View } from "react-native";
 import Screen from "../components/Screen";
 import CarResult from "../components/CarRental/CarResult";
 import SearchCarComponent from "../components/CarRental/SearchCarComponent";
+import CarFilterComponent from "../components/CarRental/CarFilterComponent";
+import AppButton from "../common/AppButton";
 
 export default class CarSearchResults extends Component {
   constructor(props) {
@@ -13,16 +15,13 @@ export default class CarSearchResults extends Component {
   render() {
     return (
       <Screen navigation={this.props.navigation}>
-        <Text>Filter Cars</Text>
+        <CarFilterComponent />
 
-        <Text>Filter 1</Text>
-        <Text>Filter 2</Text>
-        <Text>Filter 3</Text>
-        <Text>Filter 4</Text>
-
-        <Button
+        <AppButton
+          title="Filter"
+          color="primary"
+          iconColor="light"
           onPress={() => this.props.navigation.navigate("CarSearchResults")}
-          title='Filter'
         />
       </Screen>
     );

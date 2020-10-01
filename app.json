@@ -23,6 +23,9 @@
       "favicon": "./assets/favicon.png"
     },
     "description": "",
-    "githubUrl": "https://github.com/nuwanchiran/booking_app"
+    "githubUrl": "https://github.com/nuwanchiran/booking_app",
+    "android": {
+      "package": "com.booking.app"
+    }
   }
 }
