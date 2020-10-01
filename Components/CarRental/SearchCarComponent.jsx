@@ -12,6 +12,7 @@ import colors from "../../config/colors";
 import AppButton from "../../common/AppButton";
 import AppText from "../../common/AppText";
 import RangeSlider, { Slider } from "react-native-range-slider-expo";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 export default class SearchCarComponent extends Component {
   constructor(props) {
@@ -19,9 +20,24 @@ export default class SearchCarComponent extends Component {
     this.state = {
       isSelected: true,
       isSelectedAge: false,
+      isDatePickerVisible: false,
+      isTimePickerVisible: false,
+      selectedStartDate: "",
+      selectedStartTime: "",
+      selectedEndDate: "",
+      selectedEndTime: "",
     };
     this.setSelected = this.setSelected.bind(this);
     this.setSelectedAge = this.setSelectedAge.bind(this);
+
+    this.showDatePicker = this.showDatePicker.bind(this);
+    this.hideDatePicker = this.hideDatePicker.bind(this);
+    this.showTimePicker = this.showTimePicker.bind(this);
+    this.hideTimePicker = this.hideTimePicker.bind(this);
+    // handleConfirm(date)
+    // handleConfirmTime(time)
+    this.handleConfirm = this.handleConfirm.bind(this);
+    this.handleConfirmTime = this.handleConfirmTime.bind(this);
   }
 
   setFromValue(val) {
@@ -38,18 +54,39 @@ export default class SearchCarComponent extends Component {
     this.setState({ isSelectedAge: !this.state.isSelectedAge });
   }
 
+  showDatePicker() {
+    this.setState({ isDatePickerVisible: true });
+    // setDatePickerVisibility(true);
+  }
+
+  hideDatePicker() {
+    this.setState({ isDatePickerVisible: false });
+    // setDatePickerVisibility(false);
+  }
+
+  handleConfirm(date) {
+    // console.warn("A date has been picked: ", date);
+    this.setState({ selectedStartDate: date });
+    this.hideDatePicker();
+  }
+
+  showTimePicker() {
+    // setTimePickerVisibility(true);
+    this.setState({ isTimePickerVisible: true });
+  }
+  handleConfirmTime(time) {
+    console.warn("A time has been picked: ", time);
+    this.setState({ selectedStartTime: time });
+    this.hideTimePicker();
+  }
+  hideTimePicker() {
+    // setTimePickerVisibility(false);
+    this.setState({ isTimePickerVisible: false });
+  }
+
   render() {
     return (
-      <View
-        style={[
-          styles.container,
-          {
-            // flexDirection: rowMode ? "row" : "column",
-            // minHeight: 100,
-            // height: height,
-          },
-        ]}
-      >
+      <View style={styles.container}>
         <View>
           <View style={styles.returnToSameLocContainer}>
             <View style={styles.returnToSameLocTextView}>
@@ -81,6 +118,34 @@ export default class SearchCarComponent extends Component {
               // value = {this.state.text}
             />
           </View>
+          <AppText></AppText>
+          {/* start date  */}
+          <View>
+            <Button
+              title={this.state.selectedStartDate.toString()}
+              onPress={this.showDatePicker}
+            />
+            <DateTimePickerModal
+              isVisible={this.state.isDatePickerVisible}
+              mode="date"
+              onConfirm={this.handleConfirm}
+              onCancel={this.hideDatePicker}
+            />
+
+            <AppText></AppText>
+
+            <Button
+              title={this.state.selectedStartTime.toString()}
+              onPress={this.showTimePicker}
+            />
+            <DateTimePickerModal
+              isVisible={this.state.isTimePickerVisible}
+              mode="time"
+              onConfirm={this.handleConfirmTime}
+              onCancel={this.hideTimePicker}
+            />
+          </View>
+          {/* end date */}
           <View>
             <RangeSlider
               min={18}

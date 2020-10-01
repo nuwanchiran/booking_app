@@ -14,6 +14,7 @@ export default function Card({ rowMode, height, type }) {
 
   const pressTypeHotel = () => {
     setselectedTypeCar((selectedTypeCar) => false);
+    // this.props.navigation.navigate("CarSearch");
   };
 
   const pressTypeCar = () => {
