@@ -13,6 +13,7 @@ import AppButton from "../../common/AppButton";
 import AppText from "../../common/AppText";
 import RangeSlider, { Slider } from "react-native-range-slider-expo";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class SearchCarComponent extends Component {
   constructor(props) {
@@ -22,6 +23,10 @@ export default class SearchCarComponent extends Component {
       isSelectedAge: false,
       isDatePickerVisible: false,
       isTimePickerVisible: false,
+
+      isDatePickerVisibleEnd: false,
+      isTimePickerVisibleEnd: false,
+
       selectedStartDate: "",
       selectedStartTime: "",
       selectedEndDate: "",
@@ -34,10 +39,15 @@ export default class SearchCarComponent extends Component {
     this.hideDatePicker = this.hideDatePicker.bind(this);
     this.showTimePicker = this.showTimePicker.bind(this);
     this.hideTimePicker = this.hideTimePicker.bind(this);
-    // handleConfirm(date)
-    // handleConfirmTime(time)
     this.handleConfirm = this.handleConfirm.bind(this);
     this.handleConfirmTime = this.handleConfirmTime.bind(this);
+
+    this.showDatePickerEnd = this.showDatePickerEnd.bind(this);
+    this.hideDatePickerEnd = this.hideDatePickerEnd.bind(this);
+    this.showTimePickerEnd = this.showTimePickerEnd.bind(this);
+    this.hideTimePickerEnd = this.hideTimePickerEnd.bind(this);
+    this.handleConfirmEnd = this.handleConfirmEnd.bind(this);
+    this.handleConfirmTimeEnd = this.handleConfirmTimeEnd.bind(this);
   }
 
   setFromValue(val) {
@@ -56,22 +66,18 @@ export default class SearchCarComponent extends Component {
 
   showDatePicker() {
     this.setState({ isDatePickerVisible: true });
-    // setDatePickerVisibility(true);
   }
 
   hideDatePicker() {
     this.setState({ isDatePickerVisible: false });
-    // setDatePickerVisibility(false);
   }
 
   handleConfirm(date) {
-    // console.warn("A date has been picked: ", date);
     this.setState({ selectedStartDate: date });
     this.hideDatePicker();
   }
 
   showTimePicker() {
-    // setTimePickerVisibility(true);
     this.setState({ isTimePickerVisible: true });
   }
   handleConfirmTime(time) {
@@ -80,8 +86,33 @@ export default class SearchCarComponent extends Component {
     this.hideTimePicker();
   }
   hideTimePicker() {
-    // setTimePickerVisibility(false);
     this.setState({ isTimePickerVisible: false });
+  }
+
+  //
+  showDatePickerEnd() {
+    this.setState({ isDatePickerVisibleEnd: true });
+  }
+
+  hideDatePickerEnd() {
+    this.setState({ isDatePickerVisibleEnd: false });
+  }
+
+  handleConfirmEnd(date) {
+    this.setState({ selectedEndDate: date });
+    this.hideDatePicker();
+  }
+
+  showTimePickerEnd() {
+    this.setState({ isTimePickerVisibleEnd: true });
+  }
+  handleConfirmTimeEnd(time) {
+    console.warn("A time has been picked: ", time);
+    this.setState({ selectedEndTime: time });
+    this.hideTimePickerEnd();
+  }
+  hideTimePickerEnd() {
+    this.setState({ isTimePickerVisibleEnd: false });
   }
 
   render() {
@@ -104,7 +135,7 @@ export default class SearchCarComponent extends Component {
           <View style={styles.searchSection}>
             <Image
               source={require("../../assets/search/location.png")} //Change your icon image here
-              style={{ width: 50, height: 50, borderRadius: 10 }}
+              style={{ width: 40, height: 40, borderRadius: 10 }}
             />
 
             <TextInput
@@ -118,34 +149,150 @@ export default class SearchCarComponent extends Component {
               // value = {this.state.text}
             />
           </View>
-          <AppText></AppText>
-          {/* start date  */}
-          <View>
-            <Button
-              title={this.state.selectedStartDate.toString()}
-              onPress={this.showDatePicker}
-            />
-            <DateTimePickerModal
-              isVisible={this.state.isDatePickerVisible}
-              mode="date"
-              onConfirm={this.handleConfirm}
-              onCancel={this.hideDatePicker}
-            />
+          <AppText style={{ padding: 5, fontSize: 15 }}>Start Date</AppText>
 
-            <AppText></AppText>
+          {/*  */}
+          <View style={styles.datetimeContainer}>
+            <View style={styles.imageSection}>
+              <Image
+                source={require("../../assets/search/calendar.png")} //Change your icon image here
+                style={{ width: 40, height: 40, borderRadius: 10 }}
+              />
+            </View>
+            <View style={styles.buttonSection}>
+              <View>
+                {/* <Button
+                  style={{ width: "50%" }}
+                  color="#dddddd"
+                  title={this.state.selectedStartDate.toString()}
+                  onPress={this.showDatePicker}
+                /> */}
 
-            <Button
-              title={this.state.selectedStartTime.toString()}
-              onPress={this.showTimePicker}
-            />
-            <DateTimePickerModal
-              isVisible={this.state.isTimePickerVisible}
-              mode="time"
-              onConfirm={this.handleConfirmTime}
-              onCancel={this.hideTimePicker}
-            />
+                <TouchableOpacity
+                  style={{ backgroundColor: "#dddddd" }}
+                  onPress={this.showDatePicker}
+                >
+                  <AppText style={{ fontSize: 15, height: 40 }}>
+                    {this.state.selectedStartDate.toString()}
+                  </AppText>
+                </TouchableOpacity>
+
+                <DateTimePickerModal
+                  isVisible={this.state.isDatePickerVisible}
+                  mode="date"
+                  onConfirm={this.handleConfirm}
+                  onCancel={this.hideDatePicker}
+                />
+              </View>
+            </View>
           </View>
-          {/* end date */}
+          <AppText style={{ padding: 5, fontSize: 15 }}>Start Time</AppText>
+          <View style={styles.datetimeContainer}>
+            <View style={styles.imageSection}>
+              <Image
+                source={require("../../assets/search/clock.png")} //Change your icon image here
+                style={{ width: 40, height: 40, borderRadius: 10 }}
+              />
+            </View>
+            <View style={styles.buttonSection}>
+              <View>
+                {/* <Button
+                  color="#dddddd"
+                  title={this.state.selectedStartTime.toString()}
+                  onPress={this.showTimePicker}
+                /> */}
+
+                <TouchableOpacity
+                  style={{ backgroundColor: "#dddddd" }}
+                  onPress={this.showTimePicker}
+                >
+                  <AppText style={{ fontSize: 15, height: 40 }}>
+                    {this.state.selectedStartTime.toString()}
+                  </AppText>
+                </TouchableOpacity>
+
+                <DateTimePickerModal
+                  isVisible={this.state.isTimePickerVisible}
+                  mode="time"
+                  onConfirm={this.handleConfirmTime}
+                  onCancel={this.hideTimePicker}
+                />
+              </View>
+            </View>
+          </View>
+          {/*  */}
+          <AppText style={{ padding: 5, fontSize: 15 }}>End Date</AppText>
+          {/*  */}
+          <View style={styles.datetimeContainer}>
+            <View style={styles.imageSection}>
+              <Image
+                source={require("../../assets/search/calendar.png")} //Change your icon image here
+                style={{ width: 40, height: 40, borderRadius: 10 }}
+              />
+            </View>
+            <View style={styles.buttonSection}>
+              <View>
+                {/* <Button
+                  style={{ width: "50%" }}
+                  color="#dddddd"
+                  title={this.state.selectedEndDate.toString()}
+                  onPress={this.showDatePickerEnd}
+                /> */}
+
+                <TouchableOpacity
+                  style={{ backgroundColor: "#dddddd" }}
+                  onPress={this.showDatePickerEnd}
+                >
+                  <AppText style={{ fontSize: 15, height: 40 }}>
+                    {this.state.selectedEndDate.toString()}
+                  </AppText>
+                </TouchableOpacity>
+
+                <DateTimePickerModal
+                  isVisible={this.state.isDatePickerVisibleEnd}
+                  mode="date"
+                  onConfirm={this.handleConfirmEnd}
+                  onCancel={this.hideDatePickerEnd}
+                />
+              </View>
+            </View>
+          </View>
+          <AppText style={{ padding: 5, fontSize: 15 }}>End Time</AppText>
+          <View style={styles.datetimeContainer}>
+            <View style={styles.imageSection}>
+              <Image
+                source={require("../../assets/search/clock.png")} //Change your icon image here
+                style={{ width: 40, height: 40, borderRadius: 10 }}
+              />
+            </View>
+            <View style={styles.buttonSection}>
+              <View>
+                {/* <Button
+                  color="#dddddd"
+                  title={this.state.selectedEndTime.toString()}
+                  onPress={this.showTimePickerEnd}
+                /> */}
+
+                <TouchableOpacity
+                  style={{ backgroundColor: "#dddddd" }}
+                  onPress={this.showTimePickerEnd}
+                >
+                  <AppText style={{ fontSize: 15, height: 40 }}>
+                    {this.state.selectedEndTime.toString()}
+                  </AppText>
+                </TouchableOpacity>
+
+                <DateTimePickerModal
+                  isVisible={this.state.isTimePickerVisibleEnd}
+                  mode="time"
+                  onConfirm={this.handleConfirmTimeEnd}
+                  onCancel={this.hideTimePickerEnd}
+                />
+              </View>
+            </View>
+          </View>
+          {/*  */}
+
           <View>
             <RangeSlider
               min={18}
@@ -237,5 +384,18 @@ const styles = StyleSheet.create({
     borderColor: "black",
     color: "#424242",
     backgroundColor: "#dddddd",
+  },
+
+  datetimeContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+  },
+  imageSection: {
+    flexGrow: 1,
+  },
+  buttonSection: {
+    flexGrow: 10,
+    paddingRight: 10,
   },
 });
