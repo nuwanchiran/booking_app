@@ -18,7 +18,10 @@ export default class CarSearchResults extends Component {
   render() {
     return (
       <Screen navigation={this.props.navigation}>
-        <HotelOrCarSelectorCard type={"car"} />
+        <HotelOrCarSelectorCard
+          type={"car"}
+          navigation={this.props.navigation}
+        />
         <FilterSortByComponent navigation={this.props.navigation} />
 
         {/* <Button

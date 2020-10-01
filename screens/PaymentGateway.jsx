@@ -26,7 +26,10 @@ export default class PaymentGateway extends Component {
     const var1 = "Pay > US$ " + this.state.totPrice;
     return (
       <Screen navigation={this.props.navigation}>
-        <HotelOrCarSelectorCard type={"car"} />
+        <HotelOrCarSelectorCard
+          type={"car"}
+          navigation={this.props.navigation}
+        />
         <ProgressBarCard curStep={2} />
 
         <ScrollView>

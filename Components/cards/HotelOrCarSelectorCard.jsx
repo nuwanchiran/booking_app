@@ -7,18 +7,19 @@ import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import Textarea from "react-native-textarea";
 import AppButton from "../../common/AppButton";
 
-export default function Card({ rowMode, height, type }) {
+export default function Card({ rowMode, height, type, navigation }) {
   const temp = false;
 
   const [selectedTypeCar, setselectedTypeCar] = useState(false);
 
   const pressTypeHotel = () => {
     setselectedTypeCar((selectedTypeCar) => false);
-    // this.props.navigation.navigate("CarSearch");
+    navigation.navigate("Home");
   };
 
   const pressTypeCar = () => {
     setselectedTypeCar((selectedTypeCar) => true);
+    navigation.navigate("CarSearch");
   };
 
   useEffect(() => {

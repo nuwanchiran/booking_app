@@ -15,7 +15,10 @@ export default class CarSearch extends Component {
   render() {
     return (
       <Screen navigation={this.props.navigation}>
-        <HotelOrCarSelectorCard type={"car"} />
+        <HotelOrCarSelectorCard
+          navigation={this.props.navigation}
+          type={"car"}
+        />
         <ScrollView>
           <SearchCarComponent navigation={this.props.navigation} />
           <SearchCarHistoryComponent navigation={this.props.navigation} />

@@ -149,7 +149,9 @@ export default class SearchCarComponent extends Component {
               // value = {this.state.text}
             />
           </View>
-          <AppText style={{ padding: 5, fontSize: 15 }}>Start Date</AppText>
+          <AppText style={{ padding: 5, fontSize: 15, paddingLeft: "40%" }}>
+            Start Date
+          </AppText>
 
           {/*  */}
           <View style={styles.datetimeContainer}>
@@ -186,7 +188,9 @@ export default class SearchCarComponent extends Component {
               </View>
             </View>
           </View>
-          <AppText style={{ padding: 5, fontSize: 15 }}>Start Time</AppText>
+          <AppText style={{ padding: 5, fontSize: 15, paddingLeft: "40%" }}>
+            Start Time
+          </AppText>
           <View style={styles.datetimeContainer}>
             <View style={styles.imageSection}>
               <Image
@@ -221,7 +225,9 @@ export default class SearchCarComponent extends Component {
             </View>
           </View>
           {/*  */}
-          <AppText style={{ padding: 5, fontSize: 15 }}>End Date</AppText>
+          <AppText style={{ padding: 5, fontSize: 15, paddingLeft: "40%" }}>
+            End Date
+          </AppText>
           {/*  */}
           <View style={styles.datetimeContainer}>
             <View style={styles.imageSection}>
@@ -257,7 +263,9 @@ export default class SearchCarComponent extends Component {
               </View>
             </View>
           </View>
-          <AppText style={{ padding: 5, fontSize: 15 }}>End Time</AppText>
+          <AppText style={{ padding: 5, fontSize: 15, paddingLeft: "40%" }}>
+            End Time
+          </AppText>
           <View style={styles.datetimeContainer}>
             <View style={styles.imageSection}>
               <Image
