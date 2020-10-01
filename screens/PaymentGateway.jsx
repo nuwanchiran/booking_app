@@ -27,7 +27,8 @@ export default class PaymentGateway extends Component {
     return (
       <Screen navigation={this.props.navigation}>
         <HotelOrCarSelectorCard type={"car"} />
-        <ProgressBarCard />
+        <ProgressBarCard curStep={2} />
+
         <ScrollView>
           <PaymentGatewayComponent parentCallback={this.callbackFunction} />
         </ScrollView>

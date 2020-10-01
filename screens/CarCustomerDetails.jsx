@@ -20,7 +20,7 @@ export default class CarCustomerDetails extends Component {
     return (
       <Screen navigation={this.props.navigation}>
         <HotelOrCarSelectorCard type={"car"} />
-        <ProgressBarCard />
+        <ProgressBarCard curStep={1} />
 
         <ScrollView>
           <CarCustomerDetailsComponent />

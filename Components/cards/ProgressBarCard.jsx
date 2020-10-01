@@ -8,27 +8,12 @@ import Textarea from "react-native-textarea";
 import AppButton from "../../common/AppButton";
 import { ProgressSteps, ProgressStep } from "react-native-progress-steps";
 
-export default function Card({ rowMode, height, type }) {
+export default function Card({ rowMode, height, curStep }) {
   //   const temp = false;
 
   const [invalid, setInvalid] = useState(false);
   const [errors, setErrors] = useState(false);
-
-  //   const pressTypeHotel = () => {
-  //     setselectedTypeCar((selectedTypeCar) => false);
-  //   };
-
-  //   const pressTypeCar = () => {
-  //     setselectedTypeCar((selectedTypeCar) => true);
-  //   };
-
-  //   useEffect(() => {
-  //     if (type == "car") {
-  //       setselectedTypeCar(() => true);
-  //     } else if (type == "hotel") {
-  //       setselectedTypeCar(() => false);
-  //     }
-  //   });
+  const [currentStep, setSurrentStep] = useState(curStep);
 
   return (
     <View
@@ -45,23 +30,39 @@ export default function Card({ rowMode, height, type }) {
       {/* https://www.npmjs.com/package/react-native-progress-steps */}
       <View>
         <View style={{ flex: 1, marginTop: -25 }}>
-          <ProgressSteps style={{ alignTop: -10 }}>
-            <ProgressStep label="Select a car">
+          <ProgressSteps activeStep={currentStep} style={{ alignTop: -10 }}>
+            <ProgressStep
+              label="Select a car"
+              nextBtnTextStyle={styles.buttonTextStyle}
+              previousBtnTextStyle={styles.buttonTextStyle}
+            >
               <View style={{ alignItems: "center" }}>
                 <Text>Select a car</Text>
               </View>
             </ProgressStep>
-            <ProgressStep label="Customer Details">
+            <ProgressStep
+              label="Customer Details"
+              nextBtnTextStyle={styles.buttonTextStyle}
+              previousBtnTextStyle={styles.buttonTextStyle}
+            >
               <View style={{ alignItems: "center" }}>
                 <Text>Customer Details</Text>
               </View>
             </ProgressStep>
-            <ProgressStep label="Payment Gateway">
+            <ProgressStep
+              label="Payment Gateway"
+              nextBtnTextStyle={styles.buttonTextStyle}
+              previousBtnTextStyle={styles.buttonTextStyle}
+            >
               <View style={{ alignItems: "center" }}>
                 <Text>Payment Gateway</Text>
               </View>
             </ProgressStep>
-            <ProgressStep label="Booking Complete">
+            <ProgressStep
+              label="Booking Complete"
+              nextBtnTextStyle={styles.buttonTextStyle}
+              previousBtnTextStyle={styles.buttonTextStyle}
+            >
               <View style={{ alignItems: "center" }}>
                 <Text>Booking Complete</Text>
               </View>
@@ -73,4 +74,8 @@ export default function Card({ rowMode, height, type }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  buttonTextStyle: {
+    display: "none",
+  },
+});

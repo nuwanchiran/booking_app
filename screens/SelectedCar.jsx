@@ -23,7 +23,7 @@ export default class SelectedCar extends Component {
     return (
       <Screen navigation={this.props.navigation}>
         <HotelOrCarSelectorCard type={"car"} />
-        <ProgressBarCard />
+        <ProgressBarCard curStep={0} />
 
         <ScrollView>
           {/* <Text>CarNAme: {JSON.stringify(carName)}</Text> */}

@@ -21,7 +21,7 @@ export default class CarBookingFinished extends Component {
     return (
       <Screen navigation={this.props.navigation}>
         <HotelOrCarSelectorCard type={"car"} />
-        <ProgressBarCard />
+        <ProgressBarCard curStep={3} />
         <ScrollView>
           <CarBookingFinishedComponent />
 
