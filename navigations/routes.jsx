@@ -1,7 +1,11 @@
 export default Object.freeze({
   Home: "Home",
   GiftCard: "GiftCard",
+  HelpCenter: "HelpCenter",
+  Questions: "Questions",
+  QuestionsAdd: "QuestionsAdd",
   HotelList: "HotelList",
+  HotelDetails: "HotelDetails",
   CarRentals: "CarRentals",
   TravelOffers: "TravelOffers",
   CarSearch: "CarSearch",
@@ -10,7 +14,7 @@ export default Object.freeze({
   YourContributions: "YourContributions",
   AppFeedback: "AppFeedback",
   FilterCars: "FilterCars",
-  PaymentGateway:"PaymentGateway",
-  CarCustomerDetails:"CarCustomerDetails",
-  CarBookingFinished:"CarBookingFinished",
+  PaymentGateway: "PaymentGateway",
+  CarCustomerDetails: "CarCustomerDetails",
+  CarBookingFinished: "CarBookingFinished",
 });

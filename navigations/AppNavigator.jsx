@@ -12,6 +12,7 @@ import AppFeedback from "../screens/AppFeedback";
 import CarRentalsNavigator from "./CarRentalsNavigator";
 import colors from "../config/colors";
 import { AntDesign } from "@expo/vector-icons";
+import HelpCenterNavigator from './HelpCenterNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -23,8 +24,8 @@ export default function AppNavigator() {
     <NavigationContainer>
       <Drawer.Navigator
         initialRouteName={routes.Home}
-        drawerLockMode="locked-closed"
-        drawerType="front"
+        drawerLockMode='locked-closed'
+        drawerType='front'
         drawerStyle={{ color: colors.dark, backgroundColor: colors.light }}
       >
         <Drawer.Screen
@@ -34,7 +35,7 @@ export default function AppNavigator() {
             title: "Home",
             drawerIcon: ({ focused, size }) => (
               <Feather
-                name="home"
+                name='home'
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />
@@ -48,7 +49,21 @@ export default function AppNavigator() {
             title: "Gift Card",
             drawerIcon: ({ focused, size }) => (
               <AntDesign
-                name="gift"
+                name='gift'
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={routes.HelpCenter}
+          component={HelpCenterNavigator}
+          options={{
+            title: "Help Center",
+            drawerIcon: ({ focused, size }) => (
+              <AntDesign
+                name='customerservice'
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />
