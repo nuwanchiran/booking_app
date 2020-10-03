@@ -23,7 +23,7 @@ export default function AppTextInput({
       <TextInput
         placeholderTextColor={colors.medium}
         onBlur={onBlur}
-        style={defaultStyles.text}
+        style={[defaultStyles.text, styles.textBox]}
         {...rest}
       />
     </View>
@@ -35,10 +35,23 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
     borderRadius: 10,
     flexDirection: "row",
-    padding: 15,
+    padding: 10,
     marginVertical: 10,
+    borderRadius: 15,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
   },
   icon: {
-    marginRight: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 5,
+  },
+  textBox: {
+    width: "90%",
   },
 });

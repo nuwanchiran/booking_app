@@ -1,10 +1,11 @@
 import React from "react";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 import { FontAwesome } from "@expo/vector-icons";
 export default function Card({
   rowMode,
+  horizontalScroll,
   image,
   label,
   title,
@@ -13,18 +14,32 @@ export default function Card({
   rating,
   reviews,
   height,
+  marginNone,
+  logo
 }) {
+  const star = rating / 1;
+  const half = rating % 1;
   return (
     <View
       style={[
         styles.container,
         {
           flexDirection: rowMode ? "row" : "column",
-          minHeight: 100,
-          height: height,
+          marginHorizontal: marginNone ? 0 : 20,
+          minHeight: height,
+          marginVertical: marginNone ? 0 : 10,
         },
       ]}
     >
+      {logo && (
+        <Image
+          source={logo}
+          style={[
+            { height: height - 10 },
+            { width: height - 10 }
+          ]}
+        />
+      )}
       {image && (
         <ImageBackground
           source={image}
@@ -32,6 +47,7 @@ export default function Card({
             styles.img,
             { height: rowMode ? "100%" : 229 },
             { width: rowMode ? 50 : "100%" },
+            { minWidth: horizontalScroll ? 300 : null },
           ]}
         >
           {label && <AppText style={styles.label}>{label}</AppText>}
@@ -42,8 +58,8 @@ export default function Card({
           {price && (
             <AppText
               style={{
-                color: colors.secondary,
-                fontSize: 16,
+                color: "tomato",
+                fontSize: 18,
                 fontWeight: "bold",
               }}
             >
@@ -51,12 +67,14 @@ export default function Card({
             </AppText>
           )}
           {title && (
-            <AppText style={{ fontWeight: "bold", paddingVertical: 5 }}>
+            <AppText
+              style={{ fontWeight: "bold", paddingVertical: 5, fontSize: 16 }}
+            >
               {title}
             </AppText>
           )}
           {subTitle && (
-            <AppText style={{ fontSize: 16, paddingVertical: 5 }}>
+            <AppText style={{ fontSize: 14, paddingVertical: 5 }}>
               {subTitle}
             </AppText>
           )}
@@ -87,36 +105,24 @@ export default function Card({
                   width: rowMode ? 120 : 180,
                 }}
               >
-                <FontAwesome
-                  name='star'
-                  size={rowMode ? 14 : 22}
-                  color='#FFC911'
-                  style={{ marginVertical: 2 }}
-                />
-                <FontAwesome
-                  name='star'
-                  size={rowMode ? 14 : 22}
-                  color='#FFC911'
-                  style={{ marginVertical: 2 }}
-                />
-                <FontAwesome
-                  name='star'
-                  size={rowMode ? 14 : 22}
-                  color='#FFC911'
-                  style={{ marginVertical: 2 }}
-                />
-                <FontAwesome
-                  name='star'
-                  size={rowMode ? 14 : 22}
-                  color='#FFC911'
-                  style={{ marginVertical: 2 }}
-                />
-                <FontAwesome
-                  name='star'
-                  size={rowMode ? 14 : 22}
-                  color='#FFC911'
-                  style={{ marginVertical: 2 }}
-                />
+                {Array.from({ length: star }, (_, index) => (
+                  <FontAwesome
+                    key={index}
+                    name='star'
+                    size={rowMode ? 14 : 22}
+                    color='#FFC911'
+                    style={{ marginVertical: 2 }}
+                  />
+                ))}
+                {half > 0 && (
+                  <FontAwesome
+                    name='star-half'
+                    size={rowMode ? 14 : 22}
+                    color='#FFC911'
+                    style={{ marginVertical: 2 }}
+                  />
+                )}
+
                 <AppText
                   style={{
                     fontSize: 20,
@@ -128,7 +134,7 @@ export default function Card({
                     marginBottom: 10,
                   }}
                 >
-                  {rating}
+                  {half > 0 ? rating : `${rating}.0`}
                 </AppText>
               </View>
             )}
@@ -144,10 +150,7 @@ const styles = StyleSheet.create({
     display: "flex",
     backgroundColor: colors.light,
     flex: 1,
-    padding: 3,
-    borderRadius: 3,
-    marginVertical: 10,
-    marginHorizontal: 20,
+    borderRadius: 15,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -159,12 +162,13 @@ const styles = StyleSheet.create({
   },
   img: {
     flex: 1,
+    borderRadius: 15,
     resizeMode: "cover",
     justifyContent: "flex-end",
     overflow: "hidden",
   },
   label: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.secondary,
     paddingHorizontal: 10,
     paddingVertical: 5,
     marginVertical: 10,
