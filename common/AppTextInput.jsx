@@ -7,6 +7,7 @@ import defaultStyles from "../config/styles";
 export default function AppTextInput({
   onBlur,
   icon,
+  onChangeText,
   width = "100%",
   ...rest
 }) {
@@ -23,6 +24,7 @@ export default function AppTextInput({
       <TextInput
         placeholderTextColor={colors.medium}
         onBlur={onBlur}
+        onChangeText={onChangeText}
         style={[defaultStyles.text, styles.textBox]}
         {...rest}
       />
