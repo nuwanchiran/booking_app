@@ -8,6 +8,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import AppText from "../common/AppText";
+import {
+  TouchableNativeFeedback,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 
 const iconSize = 20;
 const iconColor = colors.white;
@@ -17,21 +21,23 @@ export default function Header({ navigation, title, goBack }) {
     <View style={styles.container}>
       <View style={styles.navLogo}>
         {goBack ? (
-          <Ionicons
-            name='ios-arrow-round-back'
-            size={iconSize + 15}
-            color={iconColor}
+          <TouchableOpacity
             style={styles.icon}
             onPress={() => navigation.goBack()}
-          />
+          >
+            <Ionicons
+              name='ios-arrow-round-back'
+              size={iconSize + 15}
+              color={iconColor}
+            />
+          </TouchableOpacity>
         ) : (
-          <Feather
-            name='menu'
+          <TouchableOpacity
             style={styles.icon}
-            size={30}
-            color={iconColor}
             onPress={() => navigation.openDrawer()}
-          />
+          >
+            <Feather name='menu' size={30} color={iconColor} />
+          </TouchableOpacity>
         )}
         <AppText style={styles.title}>
           {title ? (
@@ -65,23 +71,23 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: colors.primary,
     justifyContent: "space-between",
-    padding: 10,
+    padding: 20,
     alignItems: "center",
   },
   icon: {
-    left: 20,
     height: "100%",
+    width: 30,
   },
   title: {
     height: "100%",
     color: colors.white,
     fontSize: 22,
-    marginLeft: 50,
+    marginLeft: 30,
   },
   navSideIcons: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-around",
     width: "30%",
   },
   navLogo: {

@@ -1,24 +1,56 @@
-import React from "react";
-import { Button, StyleSheet, Text, ImageBackground, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, ImageBackground, View } from "react-native";
 import AppButton from "../common/AppButton";
 import AppTextInput from "../common/AppTextInput";
 import Screen from "../components/Screen";
+import AwesomeAlert from 'react-native-awesome-alerts';
 
 export default function GiftCard({ navigation }) {
+  const [no, setNo] = useState("");
+  const [pin, setPin] = useState("");
+  const [alert, setAlert] = useState(false)
+
   return (
     <Screen navigation={navigation} title='Gift Card'>
+      <AwesomeAlert
+        show={alert}
+        showProgress={false}
+        title="Alert"
+        message={(no !== "" && pin !== "") ? "Message sent successfully" : "Please fill the form and resubmit"}
+        closeOnTouchOutside={true}
+        closeOnHardwareBackPress={false}
+        showConfirmButton={true}
+        confirmText="ok"
+        confirmButtonColor={(no !== "" && pin !== "") ? "green" : "#DD6B55"}
+        onConfirmPressed={() => {
+          setAlert(false)
+          setNo("");
+          setPin("");
+        }}
+      />
       <ImageBackground
         source={require("../assets/giftCard.jpg")}
         style={styles.image}
       >
         <View style={styles.formContainer}>
-          <AppTextInput placeholder='Card No' icon='card' />
-          <AppTextInput placeholder='Pin No' icon='pin' />
+          <AppTextInput
+            placeholder='Card No'
+            icon='card'
+            value={no}
+            onChange={({ target }) => setNo(target.value)}
+          />
+          <AppTextInput
+            placeholder='Pin No'
+            icon='pin'
+            value={pin}
+            onChange={({ target }) => setPin(target.value)}
+          />
           <AppButton
             title='Add to wallet'
             color='primary'
             icon='wallet'
             iconColor='light'
+            onPress={() => setAlert(true)}
           />
         </View>
       </ImageBackground>
