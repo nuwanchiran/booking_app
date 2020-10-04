@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
 import Card from "../common/Card";
 import HorizontalScrollView from "../components/HorizontalScrollView";
 import Screen from "../components/Screen";
@@ -20,7 +19,3 @@ export default function Home({ navigation }) {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-
-});
