@@ -1,5 +1,4 @@
 import React from "react";
-
 import Screen from "../components/Screen";
 import { FlatList, View } from "react-native";
 import CategoryIcon from "../common/CategoryIcon";
