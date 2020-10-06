@@ -29,7 +29,7 @@
     "react-native-maps": "^0.27.1",
     "react-native-modal-datetime-picker": "^9.0.0",
     "react-native-modal-dropdown": "^0.7.0",
-    "react-native-month-year-picker": "^1.4.0",
+    "react-native-month-year-picker": "^1.4.1",
     "react-native-phone-input": "^0.2.4",
     "react-native-progress": "^4.1.2",
     "react-native-progress-steps": "^1.3.4",

@@ -6,16 +6,16 @@ import {
   View,
   Image,
   TouchableOpacity,
+  SafeAreaView,
   CheckBox,
 } from "react-native";
 import AppText from "../../common/AppText";
 import colors from "../../config/colors";
-import ProgressBar from "react-native-progress/Bar";
-import { AwesomeTextInput } from "react-native-awesome-text-input";
-import Textarea from "react-native-textarea";
-import Icon from "react-native-vector-icons/FontAwesome";
+
+// import Icon from "react-native-vector-icons/FontAwesome";
 import { Input } from "react-native-elements";
 import MonthPicker from "react-native-month-year-picker";
+// import { AntDesign } from "@expo/vector-icons";
 
 export default class PaymentGatewayComponent extends Component {
   constructor(props) {
@@ -23,9 +23,23 @@ export default class PaymentGatewayComponent extends Component {
     this.state = {
       isSelected: false,
       totPrice: 22.43,
+
+      date: new Date(),
+      show: false,
+
+      // show: false,
     };
     this.setSelected = this.setSelected.bind(this);
   }
+
+  onValueChange = (event, newDate) => {
+    showPicker(false);
+    this.setState({ date: selectedDate });
+  };
+
+  showPicker = (value) => {
+    this.setState({ show: value });
+  };
 
   sendData = () => {
     this.props.parentCallback(this.state.totPrice);
@@ -82,15 +96,12 @@ export default class PaymentGatewayComponent extends Component {
           </View>
 
           <View style={styles.cardDetailsContainer}>
-            {/* <AwesomeTextInput label="Name on the Card" /> */}
             <Input
               placeholder="Name on the Card"
               leftIcon={
-                <Icon
-                  name="user"
-                  size={24}
-                  color="black"
-                  style={{ paddingRight: 10 }}
+                <Image
+                  source={require("../../assets/PaymentGateway/icons/user.png")}
+                  style={{ width: 25, height: 25 }}
                 />
               }
             />
@@ -98,49 +109,50 @@ export default class PaymentGatewayComponent extends Component {
             <Input
               placeholder="Card Number"
               leftIcon={
-                <Icon
-                  name="credit-card"
-                  size={24}
-                  color="black"
-                  style={{ paddingRight: 10 }}
+                <Image
+                  source={require("../../assets/PaymentGateway/icons/credit-card.png")}
+                  style={{ width: 25, height: 25 }}
                 />
               }
             />
 
             <Input
               placeholder="MM/YYYY"
+              value={this.state.calander}
               leftIcon={
-                <Icon
-                  name="calendar-check-o"
-                  size={24}
-                  color="black"
-                  style={{ paddingRight: 10 }}
+                <Image
+                  source={require("../../assets/PaymentGateway/icons/calendar.png")}
+                  style={{ width: 25, height: 25 }}
                 />
               }
             />
 
-            <TouchableOpacity onPress={() => this.setState({ show: true })}>
-              <Text>OPEN</Text>
-            </TouchableOpacity>
-            {this.state.show && (
-              <MonthPicker
-                onChange={this.onValueChange}
-                // value={date}
-                // minimumDate={new Date()}
-                // maximumDate={new Date(2025, 5)}
-                locale="ko"
-              />
-            )}
             {/* https://www.npmjs.com/package/react-native-month-year-picker */}
+            {/*  */}
+            {/* <SafeAreaView>
+              <Text>{(this.state.date, "MM-YYYY")}</Text>
+              <TouchableOpacity onPress={() => this.showPicker(true)}>
+                <Text>OPEN</Text>
+              </TouchableOpacity>
+              {this.state.show && (
+                // <MonthPicker
+                //   onChange={this.onValueChange}
+                //   value={this.state.date}
+                //   minimumDate={new Date(2015, 5)}
+                //   maximumDate={new Date(2025, 5)}
+                //   locale="ko"
+                // />
+                <MonthPicker maximumDate={new Date(2030, 10)} />
+              )}
+            </SafeAreaView> */}
+            {/*  */}
 
             <Input
               placeholder="CVC"
               leftIcon={
-                <Icon
-                  name="shield"
-                  size={24}
-                  color="black"
-                  style={{ paddingRight: 10 }}
+                <Image
+                  source={require("../../assets/PaymentGateway/icons/key.png")}
+                  style={{ width: 25, height: 25 }}
                 />
               }
             />
