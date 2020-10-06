@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { ImageBackground, StyleSheet, Text, View, Image } from "react-native";
 import colors from "../../../config/colors";
 import AppText from "../../../common/AppText";
-import { FontAwesome } from "@expo/vector-icons";
 import {
   ScrollView,
   TextInput,
