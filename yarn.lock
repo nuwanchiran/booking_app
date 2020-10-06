@@ -5202,7 +5202,7 @@ react-native-modal-dropdown@^0.7.0:
     deprecated-react-native-listview "0.0.5"
     prop-types "^15.6.0"
 
-react-native-month-year-picker@^1.4.0:
+react-native-month-year-picker@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/react-native-month-year-picker/-/react-native-month-year-picker-1.4.1.tgz#d552c15efd8902e9b688324aa789ccdc7d442a1b"
   integrity sha512-Pf3B3XvFz2R8vHS9+4CtSVcJYJakQpI5rr5GMpum91X7v0J5SeVGCU76Ka4dSLuY7YjazhA5zhWK0Yfe4FF5Pw==

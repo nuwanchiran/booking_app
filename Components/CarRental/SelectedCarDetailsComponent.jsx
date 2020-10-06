@@ -8,11 +8,12 @@ import {
   TouchableHighlight,
 } from "react-native";
 import colors from "../../config/colors";
-import StarRating from "react-native-star-rating";
+// import StarRating from "react-native-star-rating";
 import StyledText from "react-native-styled-text";
 import AppText from "../../common/AppText";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { SliderBox } from "react-native-image-slider-box";
+import { Rating, AirbnbRating } from "react-native-ratings";
 
 export default class SelectedCarDetailsComponent extends Component {
   constructor(props) {
@@ -196,14 +197,21 @@ export default class SelectedCarDetailsComponent extends Component {
 
               <View style={styles.carDetailsSectionSingleRow}>
                 <View></View>
-                <View style={{ paddingLeft: 30, marginTop: -20 }}>
-                  <StarRating
+                <View style={{ paddingLeft: 10, marginTop: -30 }}>
+                  {/* <StarRating
                     disabled={false}
                     maxStars={5}
                     starSize={20}
                     rating={this.state.driverRating}
                     fullStarColor={"gold"}
                     // selectedStar={(rating) => this.onStarRatingPress(rating)}
+                  /> */}
+
+                  <AirbnbRating
+                    defaultRating={this.state.driverRating}
+                    count={5}
+                    size={20}
+                    reviewSize={20}
                   />
                 </View>
               </View>
