@@ -18,7 +18,8 @@ import {
 import Textarea from "react-native-textarea";
 import AppButton from "../../common/AppButton";
 import { Dialog } from "react-native-simple-dialogs";
-import StarRating from "react-native-star-rating";
+// import StarRating from "react-native-star-rating";
+import { Rating, AirbnbRating } from "react-native-ratings";
 
 export default function Card({
   rowMode,
@@ -83,14 +84,22 @@ export default function Card({
             <Button title="Write a review" color="#003580" />
           </TouchableOpacity>
           <View style={{ paddingLeft: 10 }}>
-            <StarRating
+            {/* <StarRating
               disabled={false}
               maxStars={5}
               starSize={20}
               rating={rating}
               fullStarColor={"gold"}
               // selectedStar={(rating) => this.onStarRatingPress(rating)}
-            />
+            /> */}
+            <View style={{ marginTop: -10 }}>
+              <AirbnbRating
+                defaultRating={rating}
+                count={5}
+                size={20}
+                reviewSize={20}
+              />
+            </View>
           </View>
         </View>
       </View>
@@ -141,6 +150,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   buttonOpStyle: {
-    padding: 15,
+    // padding: 15,
+    paddingTop: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
   },
 });
