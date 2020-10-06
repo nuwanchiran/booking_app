@@ -15,6 +15,7 @@ import { AntDesign } from "@expo/vector-icons";
 import HelpCenterNavigator from './HelpCenterNavigator';
 import SignInSignUpHome from "../screens/signin_signup/SignInSignUpHome";
 import {isLoggedIn} from "../config/auth"
+import ListYourProperty from "../screens/ListYourProperty";
 
 const Drawer = createDrawerNavigator();
 const loggedIn = isLoggedIn()
@@ -95,6 +96,20 @@ export default function AppNavigator() {
             drawerIcon: ({ focused, size }) => (
               <AntDesign
                 name="hearto"
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={routes.ListYourProperty}
+          component={ListYourProperty}
+          options={{
+            title:"List your property",
+            drawerIcon: ({ focused, size }) => (
+              <AntDesign
+                name="home"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />
