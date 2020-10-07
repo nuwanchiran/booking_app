@@ -17,6 +17,11 @@ import { Input } from "react-native-elements";
 import MonthPicker from "react-native-month-year-picker";
 // import { AntDesign } from "@expo/vector-icons";
 
+import {
+  CreditCardInput,
+  LiteCreditCardInput,
+} from "react-native-credit-card-input";
+
 export default class PaymentGatewayComponent extends Component {
   constructor(props) {
     super();
@@ -74,7 +79,7 @@ export default class PaymentGatewayComponent extends Component {
               Your Total Fee | ${this.state.totPrice}
             </AppText>
           </View>
-          <View style={styles.cardContainer}>
+          {/* <View style={styles.cardContainer}>
             <View style={styles.cardView}>
               <Image
                 source={require("../../assets/PaymentGateway/visa.jpg")}
@@ -93,10 +98,10 @@ export default class PaymentGatewayComponent extends Component {
                 style={styles.amexStyle}
               />
             </View>
-          </View>
+          </View> */}
 
           <View style={styles.cardDetailsContainer}>
-            <Input
+            {/* <Input
               placeholder="Name on the Card"
               leftIcon={
                 <Image
@@ -104,8 +109,8 @@ export default class PaymentGatewayComponent extends Component {
                   style={{ width: 25, height: 25 }}
                 />
               }
-            />
-
+            /> */}
+            {/* 
             <Input
               placeholder="Card Number"
               leftIcon={
@@ -114,9 +119,9 @@ export default class PaymentGatewayComponent extends Component {
                   style={{ width: 25, height: 25 }}
                 />
               }
-            />
+            /> */}
 
-            <Input
+            {/* <Input
               placeholder="MM/YYYY"
               value={this.state.calander}
               leftIcon={
@@ -125,7 +130,7 @@ export default class PaymentGatewayComponent extends Component {
                   style={{ width: 25, height: 25 }}
                 />
               }
-            />
+            /> */}
 
             {/* https://www.npmjs.com/package/react-native-month-year-picker */}
             {/*  */}
@@ -147,7 +152,7 @@ export default class PaymentGatewayComponent extends Component {
             </SafeAreaView> */}
             {/*  */}
 
-            <Input
+            {/* <Input
               placeholder="CVC"
               leftIcon={
                 <Image
@@ -155,7 +160,12 @@ export default class PaymentGatewayComponent extends Component {
                   style={{ width: 25, height: 25 }}
                 />
               }
-            />
+            /> */}
+            <AppText></AppText>
+            <View>
+              <CreditCardInput />
+            </View>
+            <AppText></AppText>
 
             <View style={styles.saveCardDetailsContainer}>
               <View style={{ paddingLeft: 10 }}>
@@ -187,14 +197,14 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     marginVertical: 10,
     marginHorizontal: 20,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 3,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+    // elevation: 3,
   },
   paymentGatewayHeader: {
     flexDirection: "row",
