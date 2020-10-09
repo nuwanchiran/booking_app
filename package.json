@@ -23,6 +23,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
     "react-native-awesome-alerts": "^1.4.2",
     "react-native-awesome-text-input": "^1.1.2",
+    "react-native-credit-card-input": "^0.4.1",
     "react-native-elements": "^2.3.2",
     "react-native-fontawesome": "^7.0.0",
     "react-native-image-slider-box": "^1.0.12",
@@ -42,7 +43,6 @@
     "react-native-star-rating": "^1.1.0",
     "react-native-styled-text": "^1.0.1",
     "react-native-textarea": "^1.0.4",
-	"react-native-credit-card-input": "^0.4.1",
     "react-native-vector-icons": "^7.1.0",
     "react-native-web": "~0.11.7",
     "react-phone-number-input": "^3.1.0"

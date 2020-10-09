@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import {
-  Button,
-  Text,
   StyleSheet,
   View,
-  Image,
-  TouchableOpacity,
-  SafeAreaView,
   CheckBox,
 } from "react-native";
 import AppText from "../../common/AppText";
@@ -19,7 +14,6 @@ import MonthPicker from "react-native-month-year-picker";
 
 import {
   CreditCardInput,
-  LiteCreditCardInput,
 } from "react-native-credit-card-input";
 
 export default class PaymentGatewayComponent extends Component {
