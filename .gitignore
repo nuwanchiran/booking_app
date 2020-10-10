@@ -14,7 +14,6 @@ web-build/
 
 
 # node.js
-#
 node_modules/
 package-lock.json 
 yarn-error.log
@@ -22,3 +21,12 @@ yarn.lock
 
 # expo
 *.tmp
+.expo
+.expo-shared
+
+# vscode
+.vscode
+
+#yarn
+.yarn
+.yarnrc
