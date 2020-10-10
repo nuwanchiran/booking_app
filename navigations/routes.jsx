@@ -24,4 +24,5 @@ export default Object.freeze({
   SignIn: "SignIn",
   SignUp: "SignUp",
   ListYourProperty: "ListYourProperty",
+  Notifications:"Notifications"
 });
