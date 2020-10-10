@@ -24,4 +24,10 @@ export default Object.freeze({
   MyTravel: "MyTravel",
   Communities: "Communities",
   MyCommunities: "MyCommunities",
+
+  // Nisuga
+  SignInSignUpHome: "SignInSignUpHome",
+  SignIn: "SignIn",
+  SignUp: "SignUp",
+  ListYourProperty: "ListYourProperty",
 });

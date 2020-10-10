@@ -14,8 +14,8 @@ import colors from "../../config/colors";
 import { SliderBox } from "react-native-image-slider-box";
 import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-import StarRating from "react-native-star-rating";
 import StyledText from "react-native-styled-text";
+import { Rating, AirbnbRating } from "react-native-ratings";
 
 export default class CarResult extends Component {
   constructor(props) {
@@ -240,14 +240,12 @@ export default class CarResult extends Component {
 
                 <View style={styles.carDetailsSectionSingleRow}>
                   <View></View>
-                  <View style={{ paddingLeft: 30, marginTop: -20 }}>
-                    <StarRating
-                      disabled={false}
-                      maxStars={5}
-                      starSize={20}
-                      rating={this.state.driverRating}
-                      fullStarColor={"gold"}
-                      // selectedStar={(rating) => this.onStarRatingPress(rating)}
+                  <View style={{ paddingLeft: 0, marginTop: -35 }}>
+                    <AirbnbRating
+                      defaultRating={this.state.driverRating}
+                      count={5}
+                      size={20}
+                      reviewSize={20}
                     />
                   </View>
                 </View>

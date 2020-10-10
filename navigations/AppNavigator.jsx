@@ -12,10 +12,13 @@ import AppFeedback from "../screens/AppFeedback";
 import CarRentalsNavigator from "./CarRentalsNavigator";
 import colors from "../config/colors";
 import { AntDesign } from "@expo/vector-icons";
-import HelpCenterNavigator from "./HelpCenterNavigator";
 import TravelCommunityNavigator from "./TravelCommunityNavigator";
+import HelpCenterNavigator from "./HelpCenterNavigator";
+import SignInSignUpHome from "../screens/signin_signup/SignInSignUpHome";
+import { isLoggedIn } from "../config/auth";
 
 const Drawer = createDrawerNavigator();
+const loggedIn = isLoggedIn();
 
 const iconColor = colors.medium;
 const iconFocusedColor = colors.secondary;
@@ -135,6 +138,21 @@ export default function AppNavigator() {
             drawerIcon: ({ focused, size }) => (
               <MaterialIcons
                 name="card-travel"
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
+          name={routes.SignInSignUpHome}
+          component={SignInSignUpHome}
+          options={{
+            title: loggedIn ? "Account" : "Sign In / Up",
+            drawerIcon: ({ focused, size }) => (
+              <AntDesign
+                name="user"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />

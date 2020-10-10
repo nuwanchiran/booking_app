@@ -42,8 +42,8 @@ export default class MapComponent extends Component {
               <MapView.Marker
                 coordinate={{ latitude: 1.337971, longitude: 103.981247 }}
                 pinColor={"purple"} // any color
-                title={"title"}
-                description={"description"}
+                title={"Kangaroo Cabs"}
+                description={"Changi Airport"}
               />
             </MapView>
           </View>
