@@ -9,8 +9,37 @@ export default function AppTextInput({
   icon,
   onChangeText,
   width = "100%",
+  noShadow,
+  backgroundColor = colors.light,
   ...rest
 }) {
+
+  const styles = StyleSheet.create({
+    container: {
+      backgroundColor: backgroundColor,
+      borderRadius: 10,
+      flexDirection: "row",
+      padding: 10,
+      marginVertical: 10,
+      borderRadius: 15,
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: noShadow ? 1 : 3,
+    },
+    icon: {
+      paddingVertical: 10,
+      paddingHorizontal: 5,
+    },
+    textBox: {
+      width: "90%",
+    },
+  });
+  
   return (
     <View style={[styles.container, { width }]}>
       {icon && (
@@ -32,28 +61,3 @@ export default function AppTextInput({
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.light,
-    borderRadius: 10,
-    flexDirection: "row",
-    padding: 10,
-    marginVertical: 10,
-    borderRadius: 15,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 3,
-  },
-  icon: {
-    paddingVertical: 10,
-    paddingHorizontal: 5,
-  },
-  textBox: {
-    width: "90%",
-  },
-});

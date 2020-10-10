@@ -4,7 +4,6 @@ import AppText from "../../common/AppText";
 import colors from "../../config/colors";
 import FilterBarComponent from "./FilterBarComponent";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
-import { FontAwesome } from "@expo/vector-icons";
 import RangeSlider, { Slider } from "react-native-range-slider-expo";
 import { Rating, AirbnbRating } from "react-native-ratings";
 
