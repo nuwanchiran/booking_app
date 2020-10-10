@@ -9,7 +9,7 @@ export default class YourContributions extends Component {
     super();
     this.state = {};
   }
-
+  //TODO: this code have some 🐛 to fix ❓
   render() {
     return (
       <Screen navigation={this.props.navigation}>

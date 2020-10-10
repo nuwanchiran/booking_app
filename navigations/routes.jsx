@@ -17,7 +17,13 @@ export default Object.freeze({
   PaymentGateway: "PaymentGateway",
   CarCustomerDetails: "CarCustomerDetails",
   CarBookingFinished: "CarBookingFinished",
-
+  TravelCommunity: "TravelCommunity",
+  GiveTips: "GiveTips",
+  GiveQuestions: "GiveQuestions",
+  DiscoverTravel: "DiscoverTravel",
+  MyTravel: "MyTravel",
+  Communities: "Communities",
+  MyCommunities: "MyCommunities",
 
   // Nisuga
   SignInSignUpHome: "SignInSignUpHome",

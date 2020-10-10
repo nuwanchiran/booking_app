@@ -2,7 +2,7 @@ import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
-
+import { MaterialIcons } from "@expo/vector-icons";
 import GiftCard from "../screens/GiftCard";
 import HomeNavigator from "./HomeNavigator";
 import routes from "./routes";
@@ -12,13 +12,14 @@ import AppFeedback from "../screens/AppFeedback";
 import CarRentalsNavigator from "./CarRentalsNavigator";
 import colors from "../config/colors";
 import { AntDesign } from "@expo/vector-icons";
-import HelpCenterNavigator from './HelpCenterNavigator';
+import TravelCommunityNavigator from "./TravelCommunityNavigator";
+import HelpCenterNavigator from "./HelpCenterNavigator";
 import SignInSignUpHome from "../screens/signin_signup/SignInSignUpHome";
 import {isLoggedIn} from "../config/auth"
 import ListYourProperty from "../screens/ListYourProperty";
 
 const Drawer = createDrawerNavigator();
-const loggedIn = isLoggedIn()
+const loggedIn = isLoggedIn();
 
 const iconColor = colors.medium;
 const iconFocusedColor = colors.secondary;
@@ -28,8 +29,8 @@ export default function AppNavigator() {
     <NavigationContainer>
       <Drawer.Navigator
         initialRouteName={routes.Home}
-        drawerLockMode='locked-closed'
-        drawerType='front'
+        drawerLockMode="locked-closed"
+        drawerType="front"
         drawerStyle={{ color: colors.dark, backgroundColor: colors.light }}
       >
         <Drawer.Screen
@@ -39,7 +40,7 @@ export default function AppNavigator() {
             title: "Home",
             drawerIcon: ({ focused, size }) => (
               <Feather
-                name='home'
+                name="home"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />
@@ -53,7 +54,7 @@ export default function AppNavigator() {
             title: "Gift Card",
             drawerIcon: ({ focused, size }) => (
               <AntDesign
-                name='gift'
+                name="gift"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />
@@ -67,7 +68,7 @@ export default function AppNavigator() {
             title: "Help Center",
             drawerIcon: ({ focused, size }) => (
               <AntDesign
-                name='customerservice'
+                name="customerservice"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />
@@ -145,10 +146,25 @@ export default function AppNavigator() {
           }}
         />
         <Drawer.Screen
+          name={routes.TravelCommunity}
+          component={TravelCommunityNavigator}
+          options={{
+            title: "Travel Community",
+            drawerIcon: ({ focused, size }) => (
+              <MaterialIcons
+                name="card-travel"
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
           name={routes.SignInSignUpHome}
           component={SignInSignUpHome}
           options={{
-            title: loggedIn ?"Account": "Sign In / Up",
+            title: loggedIn ? "Account" : "Sign In / Up",
             drawerIcon: ({ focused, size }) => (
               <AntDesign
                 name="user"
