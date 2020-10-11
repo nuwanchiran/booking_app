@@ -11,6 +11,7 @@ export default function AppTextInput({
   width = "100%",
   noShadow,
   backgroundColor = colors.light,
+  keyboardType = "default",
   ...rest
 }) {
 
@@ -39,7 +40,7 @@ export default function AppTextInput({
       width: "90%",
     },
   });
-  
+
   return (
     <View style={[styles.container, { width }]}>
       {icon && (
@@ -54,6 +55,7 @@ export default function AppTextInput({
         placeholderTextColor={colors.medium}
         onBlur={onBlur}
         onChangeText={onChangeText}
+        keyboardType={keyboardType}
         style={[defaultStyles.text, styles.textBox]}
         {...rest}
       />

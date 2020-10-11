@@ -40,6 +40,7 @@ export default function GiftCard({ navigation }) {
           <AppTextInput
             placeholder="Card No"
             icon="card"
+            keyboardType="phone-pad"
             value={no}
             onChange={({ target }) => setNo(target.value)}
           />
@@ -47,6 +48,7 @@ export default function GiftCard({ navigation }) {
             placeholder="Pin No"
             icon="pin"
             value={pin}
+            keyboardType="phone-pad"
             onChange={({ target }) => setPin(target.value)}
           />
           <AppButton
