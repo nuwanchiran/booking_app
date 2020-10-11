@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Text, StyleSheet, View, Alert, Linking } from "react-native";
+import { Button, Text, StyleSheet, View, Alert, Linking, Image } from "react-native";
 import AppText from "../../common/AppText";
 import colors from "../../config/colors";
 import { AntDesign } from "@expo/vector-icons";
@@ -30,7 +30,7 @@ export default class MapComponent extends Component {
             <AppText style={styles.supplierText}>Supplier Info</AppText>
           </View>
           <View style={styles.mapArea}>
-            <MapView
+            {/* <MapView
               style={styles.mapStyle}
               initialRegion={{
                 latitude: 1.337971,
@@ -45,7 +45,14 @@ export default class MapComponent extends Component {
                 title={"Kangaroo Cabs"}
                 description={"Changi Airport"}
               />
-            </MapView>
+            </MapView> */}
+          
+            <Image
+                  source={require("../../assets/carRental/map.png")}
+                  style={styles.mapImg}
+                />
+          
+            
           </View>
 
           <View style={styles.supplierAddressContactButtonView}>
@@ -141,6 +148,9 @@ const styles = StyleSheet.create({
   mapArea: {
     // borderRadius: 20,
     // overflow: "hidden",
+    // width:150,
+    // height:100
+
   },
   supplierAddress: {
     paddingLeft: 10,
@@ -166,4 +176,10 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingTop: 10,
   },
+  mapImg:{
+    width:"100%",
+    height:"65%",
+    borderRadius:30
+
+  }
 });
