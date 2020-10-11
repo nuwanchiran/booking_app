@@ -15,7 +15,9 @@ import { AntDesign } from "@expo/vector-icons";
 import TravelCommunityNavigator from "./TravelCommunityNavigator";
 import HelpCenterNavigator from "./HelpCenterNavigator";
 import SignInSignUpHome from "../screens/signin_signup/SignInSignUpHome";
-import { isLoggedIn } from "../config/auth";
+import {isLoggedIn} from "../config/auth"
+import ListYourProperty from "../screens/ListYourProperty";
+import WishList from "../screens/WishList";
 
 const Drawer = createDrawerNavigator();
 const loggedIn = isLoggedIn();
@@ -96,6 +98,34 @@ export default function AppNavigator() {
             drawerIcon: ({ focused, size }) => (
               <AntDesign
                 name="hearto"
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={routes.WishList}
+          component={WishList}
+          options={{
+            title: "Wish Lists",
+            drawerIcon: ({ focused, size }) => (
+              <AntDesign
+                name="staro"
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={routes.ListYourProperty}
+          component={ListYourProperty}
+          options={{
+            title:"List your property",
+            drawerIcon: ({ focused, size }) => (
+              <AntDesign
+                name="home"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />

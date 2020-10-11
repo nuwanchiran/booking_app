@@ -1,12 +1,12 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import AppButton from "../common/AppButton";
 import AppText from "../common/AppText";
 import Card from "../common/Card";
 import Map from "../common/Map";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
-import AppButton from "../common/AppButton";
 import routes from "../navigations/routes";
 
 export default function HotelDetails({ navigation, route }) {
@@ -21,6 +21,7 @@ export default function HotelDetails({ navigation, route }) {
     address,
     latitude,
     longitude,
+    rooms
   } = hotel;
   return (
     <Screen navigation={navigation} title="Hotel Details" goBack>
@@ -32,9 +33,18 @@ export default function HotelDetails({ navigation, route }) {
           rating={rating}
           reviews={reviews.length}
         />
-
-        <Card title="Description" subTitle={description} />
-        <Card title="Address" subTitle={address} />
+        <AppButton
+            title="Select rooms"
+            color="primary"
+            icon="export"
+            iconColor="light"
+            borderRadius={0}
+            style={styles.roomsButton}
+            width="100%"
+            onPress={()=> { navigation.navigate(routes.RoomList,{rooms: rooms}) }}
+        />
+        <Card title='Description' subTitle={description} />
+        <Card title='Address' subTitle={address} />
 
         <Map latitude={latitude} longitude={longitude} />
 
@@ -65,10 +75,21 @@ export default function HotelDetails({ navigation, route }) {
 }
 
 const styles = StyleSheet.create({
+  details:{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "red"
+  },  
   image: {
     flex: 1,
     width: "100%",
     height: 320,
+  },
+  roomsButton:{
+    width: "100%",
+    height: 320, 
+    margin:10
   },
   formContainer: {
     paddingHorizontal: 30,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
 import colors from "../config/colors";
@@ -12,18 +12,32 @@ import {
   TouchableNativeFeedback,
   TouchableOpacity,
 } from "react-native-gesture-handler";
+import NotificationsDialog from "./dialogs/NotificationsDialog"
+import SimplePopupMenu from 'react-native-simple-popup-menu'
 
 const iconSize = 20;
 const iconColor = colors.white;
 
 export default function Header({ navigation, title, goBack }) {
+    
+  const[notificationsDialog, setNotificationsDialog] = useState(false)
+  const[chatDialog, setChatDialog] = useState(false)
+  const[threeDotsDialog, setThreeDotsDialog] = useState(false)
+
+  const items = [
+    { id: 'Language', label: 'Language' },
+    { id: 'Currency', label: 'Currency' },
+    { id: 'Contact Customer Service', label: 'Contact Customer Service' },
+    { id: 'Sign out', label: 'Sign out' },
+  ];
+
   return (
     <View style={styles.container}>
       <View style={styles.navLogo}>
         {goBack ? (
           <TouchableOpacity
-            style={styles.icon}
-            onPress={() => navigation.goBack()}
+          style={styles.icon}
+          onPress={() => navigation.goBack()}
           >
             <Ionicons
               name='ios-arrow-round-back'
@@ -33,8 +47,8 @@ export default function Header({ navigation, title, goBack }) {
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
-            style={styles.icon}
-            onPress={() => navigation.openDrawer()}
+          style={styles.icon}
+          onPress={() => navigation.openDrawer()}
           >
             <Feather name='menu' size={30} color={iconColor} />
           </TouchableOpacity>
@@ -42,8 +56,8 @@ export default function Header({ navigation, title, goBack }) {
         <AppText style={styles.title}>
           {title ? (
             title
-          ) : (
-            <React.Fragment>
+            ) : (
+              <React.Fragment>
               Booking
               <AppText style={{ color: colors.secondary }}>.com</AppText>
             </React.Fragment>
@@ -51,13 +65,37 @@ export default function Header({ navigation, title, goBack }) {
         </AppText>
       </View>
       <View style={styles.navSideIcons}>
-        <MaterialCommunityIcons
-          name='chat-outline'
-          size={iconSize}
-          color={iconColor}
-        />
-        <AntDesign name='bells' size={iconSize} color={iconColor} />
-        <Entypo name='dots-three-vertical' size={iconSize} color={iconColor} />
+          <TouchableOpacity
+              onPress={() => setChatDialog(true)}
+            >
+              <MaterialCommunityIcons
+                name='chat-outline'
+                size={iconSize}
+                color={iconColor}
+              />
+          </TouchableOpacity>
+          <TouchableOpacity
+              onPress={() => {setNotificationsDialog(true) }}
+            >
+              <View>
+                <NotificationsDialog 
+                  showDialog={notificationsDialog}
+                  hideDialog={() => setNotificationsDialog(false)}  
+                />
+              </View>
+              <AntDesign name='bells' size={iconSize} color={iconColor} />
+          </TouchableOpacity>
+          <TouchableOpacity
+              // onPress={() => setThreeDotsDialog(true)}
+            >
+              <SimplePopupMenu
+                  items={items}
+                  style={styles.threeDotsMenu}
+                  onSelect={(item)=>{alert(item.label) }}
+                  onCancel={() => console.log('onCancel')}>
+                  <Entypo name='dots-three-vertical' size={iconSize} color={iconColor} />
+              </SimplePopupMenu>
+         </TouchableOpacity>
       </View>
     </View>
   );
@@ -94,4 +132,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
   },
+  threeDotsMenu:{
+    paddingRight:5
+  }
 });
