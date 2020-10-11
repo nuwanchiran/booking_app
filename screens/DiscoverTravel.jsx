@@ -21,7 +21,7 @@ import routes from "../navigations/routes";
 
 export default function DiscoverTravel({ navigation, route }) {
   return (
-    <Screen navigation={navigation} title="Travel Community">
+    <Screen navigation={navigation} title="Travel Community" goBack>
       <ImageBackground
         source={require("../assets/TravelCommunity/community.jpg")}
         style={{ width: "100%", height: 200 }}

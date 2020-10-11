@@ -27,7 +27,7 @@ export default function Communities({ navigation, route }) {
   const [alert, setAlert] = useState(false);
 
   return (
-    <Screen navigation={navigation} title="Travel Community">
+    <Screen navigation={navigation} title="Travel Community" goBack>
       <AwesomeAlert
         show={alert}
         showProgress={false}
