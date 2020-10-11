@@ -11,6 +11,18 @@ export default [{
         rating: 4.2,
         latitude: 8.5874,
         longitude: 81.2152,
+        rooms: [
+          {
+            name :"Classic Quadruple Room",
+            price: 12500,
+            image : require("../assets/bed.jpg")
+          },
+          {
+            name :"Classic Triple Room",
+            price: 17000,
+            image : require("../assets/oldStyleRoom.jpg")
+          }
+        ],
         reviews: [{
             user: "lskadjfl",
             review: "sadjfklasdhfj"

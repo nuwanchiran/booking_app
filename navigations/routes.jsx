@@ -32,4 +32,6 @@ export default Object.freeze({
   ListYourProperty: "ListYourProperty",
   Notifications:"Notifications",
   WishList:"WishList",
+  RoomList:"RoomList",
+  RoomSingleView:"RoomSingleView"
 });
