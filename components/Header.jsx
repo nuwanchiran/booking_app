@@ -21,10 +21,10 @@ const iconSize = 20;
 const iconColor = colors.white;
 
 export default function Header({ navigation, title, goBack }) {
-    
-  const[notificationsDialog, setNotificationsDialog] = useState(false)
-  const[chatDialog, setChatDialog] = useState(false)
-  const[threeDotsDialog, setThreeDotsDialog] = useState(false)
+
+  const [notificationsDialog, setNotificationsDialog] = useState(false)
+  const [chatDialog, setChatDialog] = useState(false)
+  const [threeDotsDialog, setThreeDotsDialog] = useState(false)
 
   const items = [
     { id: 'Language', label: 'Language' },
@@ -38,8 +38,8 @@ export default function Header({ navigation, title, goBack }) {
       <View style={styles.navLogo}>
         {goBack ? (
           <TouchableOpacity
-          style={styles.icon}
-          onPress={() => navigation.goBack()}
+            style={styles.icon}
+            onPress={() => navigation.goBack()}
           >
             <Ionicons
               name='ios-arrow-round-back'
@@ -48,73 +48,74 @@ export default function Header({ navigation, title, goBack }) {
             />
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity
-          style={styles.icon}
-          onPress={() => navigation.openDrawer()}
-          >
-            <Feather name='menu' size={30} color={iconColor} />
-          </TouchableOpacity>
-        )}
+            <TouchableOpacity
+              style={styles.icon}
+              onPress={() => navigation.openDrawer()}
+            >
+              <Feather name='menu' size={30} color={iconColor} />
+            </TouchableOpacity>
+          )}
         <AppText style={styles.title}>
           {title ? (
             title
-            ) : (
+          ) : (
               <React.Fragment>
-              Booking
-              <AppText style={{ color: colors.secondary }}>.com</AppText>
-            </React.Fragment>
-          )}
+                Booking
+                <AppText style={{ color: colors.secondary }}>.com</AppText>
+              </React.Fragment>
+            )}
         </AppText>
       </View>
       <View style={styles.navSideIcons}>
-          <TouchableOpacity
-              onPress={() => setChatDialog(true)}
-            >
+        <TouchableOpacity
+          onPress={() => setChatDialog(true)}
+        >
 
-              <View>
-              <Dialog
-                visible={chatDialog}
-                  title="Chat"
-                  onTouchOutside={() => setChatDialog(false) }
-                  >
-                  {testNotifications && testNotifications.map( (value, index) =>(
-                    <AppText 
-                      style={{margin:10}}
-                   >
-                     {value.desc}
-                   </AppText>
-                    ))
-                  }
-              </Dialog>
-              </View>
-              <MaterialCommunityIcons
-                name='chat-outline'
-                size={iconSize}
-                color={iconColor}
-              />
-          </TouchableOpacity>
-          <TouchableOpacity
-              onPress={() => {setNotificationsDialog(true) }}
+          <View>
+            <Dialog
+              visible={chatDialog}
+              title="Chat"
+              onTouchOutside={() => setChatDialog(false)}
             >
-              <View>
-                <NotificationsDialog 
-                  showDialog={notificationsDialog}
-                  hideDialog={() => setNotificationsDialog(false)}  
-                />
-              </View>
-              <AntDesign name='bells' size={iconSize} color={iconColor} />
-          </TouchableOpacity>
-          <TouchableOpacity
-              // onPress={() => setThreeDotsDialog(true)}
-            >
-              <SimplePopupMenu
-                  items={items}
-                  style={styles.threeDotsMenu}
-                  onSelect={(item)=>{alert(item.label) }}
-                  onCancel={() => console.log('onCancel')}>
-                  <Entypo name='dots-three-vertical' size={iconSize} color={iconColor} />
-              </SimplePopupMenu>
-         </TouchableOpacity>
+              {testNotifications && testNotifications.map((value, index) => (
+                <AppText
+                  style={{ margin: 10 }}
+                  key={index}
+                >
+                  {value.desc}
+                </AppText>
+              ))
+              }
+            </Dialog>
+          </View>
+          <MaterialCommunityIcons
+            name='chat-outline'
+            size={iconSize}
+            color={iconColor}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => { setNotificationsDialog(true) }}
+        >
+          <View>
+            <NotificationsDialog
+              showDialog={notificationsDialog}
+              hideDialog={() => setNotificationsDialog(false)}
+            />
+          </View>
+          <AntDesign name='bells' size={iconSize} color={iconColor} />
+        </TouchableOpacity>
+        <TouchableOpacity
+        // onPress={() => setThreeDotsDialog(true)}
+        >
+          <SimplePopupMenu
+            items={items}
+            style={styles.threeDotsMenu}
+            onSelect={(item) => { alert(item.label) }}
+            onCancel={() => console.log('onCancel')}>
+            <Entypo name='dots-three-vertical' size={iconSize} color={iconColor} />
+          </SimplePopupMenu>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
   },
-  threeDotsMenu:{
-    paddingRight:5
+  threeDotsMenu: {
+    paddingRight: 5
   }
 });
