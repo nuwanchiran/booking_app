@@ -17,6 +17,7 @@ import HelpCenterNavigator from "./HelpCenterNavigator";
 import SignInSignUpHome from "../screens/signin_signup/SignInSignUpHome";
 import {isLoggedIn} from "../config/auth"
 import ListYourProperty from "../screens/ListYourProperty";
+import WishList from "../screens/WishList";
 
 const Drawer = createDrawerNavigator();
 const loggedIn = isLoggedIn();
@@ -97,6 +98,20 @@ export default function AppNavigator() {
             drawerIcon: ({ focused, size }) => (
               <AntDesign
                 name="hearto"
+                size={size}
+                color={focused ? iconFocusedColor : iconColor}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={routes.WishList}
+          component={WishList}
+          options={{
+            title: "Wish Lists",
+            drawerIcon: ({ focused, size }) => (
+              <AntDesign
+                name="staro"
                 size={size}
                 color={focused ? iconFocusedColor : iconColor}
               />
