@@ -5,9 +5,10 @@ import {
   StyleSheet,
   View,
   Image,
-  Picker,
-  CheckBox,
+  Picker
 } from "react-native";
+// import { Picker } from '@react-native-community/picker'
+import CheckBox from "@react-native-community/checkbox";
 import AppText from "../../common/AppText";
 import colors from "../../config/colors";
 import ProgressBar from "react-native-progress/Bar";
@@ -61,9 +62,9 @@ export default class CarCustomerDetailsComponent extends Component {
                   <Picker
                     //   selectedValue={this.state.selectedValue}
                     style={{ height: 50, width: 100, borderColor: "gray" }}
-                    // onValueChange={(itemValue, itemIndex) =>
-                    //   setSelectedValue(itemValue)
-                    // }
+                  // onValueChange={(itemValue, itemIndex) =>
+                  //   setSelectedValue(itemValue)
+                  // }
                   >
                     <Picker.Item label="Mr." value="mr" />
                     <Picker.Item label="Mrs." value="mrs" />
@@ -99,7 +100,7 @@ export default class CarCustomerDetailsComponent extends Component {
               <Textarea
                 containerStyle={styles.textareaContainer}
                 style={styles.textarea}
-                onChangeText={this.onChange}
+                onChangeText={() => this.onChange}
                 defaultValue={this.state.text}
                 maxLength={120}
                 placeholder={
@@ -119,8 +120,8 @@ export default class CarCustomerDetailsComponent extends Component {
               <View>
                 <CheckBox
                   value={this.state.isSelected}
-                  onValueChange={this.setSelected}
-                  // style={styles.checkboxcust}
+                  onValueChange={() => this.setSelected}
+                // style={styles.checkboxcust}
                 />
               </View>
               <View style={{ paddingLeft: 10 }}>

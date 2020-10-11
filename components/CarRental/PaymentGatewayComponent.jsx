@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import {
   StyleSheet,
   View,
-  CheckBox,
 } from "react-native";
+import CheckBox from "@react-native-community/checkbox";
 import AppText from "../../common/AppText";
 import colors from "../../config/colors";
 
