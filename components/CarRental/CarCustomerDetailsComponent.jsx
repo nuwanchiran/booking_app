@@ -121,7 +121,6 @@ export default class CarCustomerDetailsComponent extends Component {
                 <CheckBox
                   value={this.state.isSelected}
                   onValueChange={() => this.setSelected}
-                // style={styles.checkboxcust}
                 />
               </View>
               <View style={{ paddingLeft: 10 }}>
