@@ -14,6 +14,8 @@ import {
 } from "react-native-gesture-handler";
 import NotificationsDialog from "./dialogs/NotificationsDialog"
 import SimplePopupMenu from 'react-native-simple-popup-menu'
+import { Dialog } from "react-native-simple-dialogs";
+import testNotifications from "../dataset/testNotifications";
 
 const iconSize = 20;
 const iconColor = colors.white;
@@ -68,6 +70,23 @@ export default function Header({ navigation, title, goBack }) {
           <TouchableOpacity
               onPress={() => setChatDialog(true)}
             >
+
+              <View>
+              <Dialog
+                visible={chatDialog}
+                  title="Chat"
+                  onTouchOutside={() => setChatDialog(false) }
+                  >
+                  {testNotifications && testNotifications.map( (value, index) =>(
+                    <AppText 
+                      style={{margin:10}}
+                   >
+                     {value.desc}
+                   </AppText>
+                    ))
+                  }
+              </Dialog>
+              </View>
               <MaterialCommunityIcons
                 name='chat-outline'
                 size={iconSize}
