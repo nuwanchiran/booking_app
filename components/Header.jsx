@@ -12,7 +12,8 @@ import {
   TouchableNativeFeedback,
   TouchableOpacity,
 } from "react-native-gesture-handler";
-import NotificationsDialog from "./dialogs/NotificationsDialog";
+import NotificationsDialog from "./dialogs/NotificationsDialog"
+import SimplePopupMenu from 'react-native-simple-popup-menu'
 
 const iconSize = 20;
 const iconColor = colors.white;
@@ -23,7 +24,12 @@ export default function Header({ navigation, title, goBack }) {
   const[chatDialog, setChatDialog] = useState(false)
   const[threeDotsDialog, setThreeDotsDialog] = useState(false)
 
-
+  const items = [
+    { id: 'Language', label: 'Language' },
+    { id: 'Currency', label: 'Currency' },
+    { id: 'Contact Customer Service', label: 'Contact Customer Service' },
+    { id: 'Sign out', label: 'Sign out' },
+  ];
 
   return (
     <View style={styles.container}>
@@ -80,9 +86,15 @@ export default function Header({ navigation, title, goBack }) {
               <AntDesign name='bells' size={iconSize} color={iconColor} />
           </TouchableOpacity>
           <TouchableOpacity
-              onPress={() => setThreeDotsDialog(true)}
+              // onPress={() => setThreeDotsDialog(true)}
             >
-            <Entypo name='dots-three-vertical' size={iconSize} color={iconColor} />
+              <SimplePopupMenu
+                  items={items}
+                  style={styles.threeDotsMenu}
+                  onSelect={(item)=>{alert(item.label) }}
+                  onCancel={() => console.log('onCancel')}>
+                  <Entypo name='dots-three-vertical' size={iconSize} color={iconColor} />
+              </SimplePopupMenu>
          </TouchableOpacity>
       </View>
     </View>
@@ -120,4 +132,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
   },
+  threeDotsMenu:{
+    paddingRight:5
+  }
 });

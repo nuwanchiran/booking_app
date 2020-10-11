@@ -1,51 +1,16 @@
 import React, { useState } from "react";
-import { StyleSheet, ImageBackground, View, ScrollView } from "react-native";
-import Screen from "../Screen";
+import { StyleSheet, TouchableNativeFeedback, View } from "react-native";
+import {ScrollView} from "react-native-gesture-handler"
 import colors from "../../config/colors";
 import AppText from "../../common/AppText";
-import AppButton from "../../common/AppButton";
-import listYourPropertyBenfitsData from "../../dataset/listYourPropertyBenfitsData";
-import { MaterialIcons} from "@expo/vector-icons";
 import { Dialog } from "react-native-simple-dialogs";
+import testNotifications from "../../dataset/testNotifications";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+const notifi_types = require("../../config/params").default.notifi_types
 
 export default function NotificationsDialog({ navigation , showDialog , hideDialog}) {
-
-    const NotificationItem = ( {benefit} ) => {
-        const notificationStyles = StyleSheet.create({
-            notificationItem:{
-                display: 'flex',
-                flexDirection: 'row',
-                // justifyContent: 'center',
-                alignItems: 'center',
-                padding:10
-            },
-            notificationIcon:{
-                flex:1,
-                padding:5,
-                backgroundColor: 'gold',
-                borderRadius:50,
-                marginRight:10
-            },
-            notificationText:{
-                flex:10,
-                fontSize:20,
-                color:colors.white
-            }
-        })
-
-        return (<View style={notificationStyles.benefitItem}>
-                <MaterialIcons
-                    style={notificationStyles.benefitIcon}
-                    name="done"
-                    size={25}
-                    color={colors.medium}
-                />
-                <AppText style={notificationStyles.benefitText}>
-                {benefit}
-                </AppText>
-            </View>)
-    }
-
+  const[notifications,setNotifications] = useState(testNotifications)
   return (
           <Dialog
               dialogStyle={styles.dialog}
@@ -54,18 +19,138 @@ export default function NotificationsDialog({ navigation , showDialog , hideDial
               title="Notifications"
               onTouchOutside={() => hideDialog() }
               >
-              <View>
-                <ScrollView>
-                  <AppText style={styles.titleDesc}>
-                    Homes, hotels, and everything between. Whatever it is, you can list it.
-                  </AppText>
-                  {listYourPropertyBenfitsData && listYourPropertyBenfitsData.map( (value, index) =>(
-                    <NotificationItem benefit={value} key={index}/>
-                    ))}`
-                  </ScrollView>
-              </View>
+                <ScrollView style={styles.scrollView}>
+                  {notifications && notifications.map( (value, index) =>(
+                    <NotificationItem 
+                    key={index}
+                    title={value.title} 
+                    desc={value.desc}
+                    date={value.date}
+                    type={value.type}
+                    index={index}
+                    clearNotification={(index)=> setNotifications(notifications.filter((v,i) => i !== index))}
+                    />
+                    ))
+                  }{
+                  (notifications.length === 0) &&  
+                      <AppText>
+                        No notifications
+                      </AppText>
+                  }
+                </ScrollView>
           </Dialog>
-);
+      );
+}
+
+
+const NotificationItem = ( {title, desc, date, type, clearNotification, index} ) => {
+  const notificationStyles = StyleSheet.create({
+      notificationItem:{
+        backgroundColor:"#E3E3E3",
+        padding:8,
+        marginBottom:10,
+        borderRadius:10,
+        display: 'flex',
+        flexDirection: 'column',
+        // justifyContent: 'center',
+        alignItems: 'center',
+        shadowColor: colors.light,
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius:10,
+        elevation: 3,
+      },
+      notifiTopLeveler:{
+        width:"100%",
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // justifyContent: 'center',
+        alignItems: 'center',
+      },
+      notifiMidLeveler:{
+        display: 'flex',
+        flexDirection: 'column',
+        // justifyContent: 'center',
+        alignItems: 'center',
+        marginVertical: 10,
+      },
+  
+      typeLabel:{
+        backgroundColor: 
+            type === notifi_types.INFO ?  colors.secondary
+              : type === notifi_types.TIP ? "green"
+                : type === notifi_types.MESSAGE ? "blue" : colors.medium
+            ,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        marginHorizontal: 0,
+        fontSize:15,
+        width: 90,
+        borderRadius: 15,
+        color: colors.white,
+        textAlign: "center",
+      },
+      dateLabel:{
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        marginHorizontal: 0,
+        width: 100,
+        borderRadius: 15,
+        color: colors.medium,
+        textAlign: "center",
+      },
+      notificationText:{
+        textAlign: "center",
+        marginTop:3,
+        marginBottom:3,
+        fontWeight: "bold",
+        color: colors.primary
+      },
+      notificationDesc:{
+        textAlign: "center",
+        fontSize:15,
+        color: colors.medium,
+      }
+  })
+
+  return (
+    <View style={notificationStyles.notificationItem}>
+      <View style={notificationStyles.notifiTopLeveler}>
+          <AppText
+            style={notificationStyles.typeLabel}
+          >
+            {type}
+          </AppText>
+          <AppText
+            style={notificationStyles.dateLabel}
+          >
+            {date}
+          </AppText>
+          <TouchableNativeFeedback
+            onPress={()=>clearNotification(index)}
+          >
+          <MaterialCommunityIcons
+            name={"close"}
+            size={20}
+            color={colors.medium}
+          />
+          </TouchableNativeFeedback>
+
+      </View>
+      <View style={notificationStyles.notifiMidLeveler}>
+        <AppText style={notificationStyles.notificationText}>
+            {title}
+        </AppText>
+        <AppText style={notificationStyles.notificationDesc}>
+            {desc}
+        </AppText>
+      </View>
+    </View>
+   )
 }
 
 const styles = StyleSheet.create({
@@ -73,29 +158,20 @@ const styles = StyleSheet.create({
     padding:0,
     margin:0,
     backgroundColor: colors.light,
-    borderRadius:10
+    borderRadius:10,
+    maxHeight:"90%"
    },
   title:{
-    fontSize:40, 
+    fontSize:30, 
     textAlign: "left",
-    color: colors.white,
-    backgroundColor: colors.primary
+    color: colors.primary
   },  
-  titleDesc:{
-    fontSize:20, 
-    textAlign: "center",
-    paddingBottom:25,
-    color: colors.black,
-  },  
-  image: {
-    flex: 1,
-    resizeMode: "cover",
-    height: "100%",
-    justifyContent: "flex-end",
-  },
   notificationsPanel:{
     backgroundColor: "rgba(0,0,0,0.8)",
     borderRadius:10,
-    paddingVertical:40
+    paddingVertical:40, 
+  },
+  scrollView:{
+    maxHeight:"95%",
   }
 });
