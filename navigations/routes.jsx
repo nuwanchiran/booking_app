@@ -24,6 +24,7 @@ export default Object.freeze({
   MyTravel: "MyTravel",
   Communities: "Communities",
   MyCommunities: "MyCommunities",
+  HotelFillInfo: "HotelFillInfo",
 
   // Nisuga
   SignInSignUpHome: "SignInSignUpHome",
