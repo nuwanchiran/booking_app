@@ -4,6 +4,7 @@ import Home from "../screens/Home";
 import HotelList from "../screens/HotelList";
 import routes from "./routes";
 import HotelDetails from "../screens/HotelDetails";
+import HotelFillInfo from "../screens/HotelFillInfo";
 
 const Stack = createStackNavigator();
 
@@ -13,7 +14,7 @@ export default function HomeNavigator() {
       <Stack.Screen name={routes.Home} component={Home} />
       <Stack.Screen name={routes.HotelList} component={HotelList} />
       <Stack.Screen name={routes.HotelDetails} component={HotelDetails} />
+      <Stack.Screen name={routes.HotelFillInfo} component={HotelFillInfo} />
     </Stack.Navigator>
   );
 }
-

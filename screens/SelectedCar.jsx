@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View, Dimensions, Image } from "react-native";
 import Screen from "../components/Screen";
 import SelectedCarDetailsComponent from "../components/CarRental/SelectedCarDetailsComponent";
 import PickupDropOffComponent from "../components/CarRental/PickupDropOffComponent";
@@ -12,6 +12,7 @@ import AppButton from "../common/AppButton";
 import AppText from "../common/AppText";
 import ProgressBarComponent from "../components/CarRental/ProgressBarComponent";
 import ProgressBarCard from "../components/cards/ProgressBarCard";
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 export default class SelectedCar extends Component {
   constructor(props) {
@@ -36,6 +37,14 @@ export default class SelectedCar extends Component {
 
           <MapComponent />
 
+            
+           
+            
+      
+
+            
+          
+
           <CarFeeComponent charge={10.2} noDays={2} tax={3.03} />
           <View style={{ alignItems: "center" }}>
             <AppText style={{ fontSize: 12 }}>Terms and conditions</AppText>
@@ -55,4 +64,6 @@ export default class SelectedCar extends Component {
   }
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+ 
+});

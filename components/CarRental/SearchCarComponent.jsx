@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  CheckBox,
   Button,
   Text,
   StyleSheet,
@@ -8,6 +7,7 @@ import {
   TextInput,
   Image,
 } from "react-native";
+import CheckBox from '@react-native-community/checkbox'
 import colors from "../../config/colors";
 import AppButton from "../../common/AppButton";
 import AppText from "../../common/AppText";
@@ -145,8 +145,8 @@ export default class SearchCarComponent extends Component {
               // inlineImagePadding={5}
               placeHolder="Search Product"
               placeholderTextColor="gray"
-              // onChangeText={ (text) => this.setState({text})}
-              // value = {this.state.text}
+            // onChangeText={ (text) => this.setState({text})}
+            // value = {this.state.text}
             />
           </View>
           <AppText style={{ padding: 5, fontSize: 15, paddingLeft: "40%" }}>
