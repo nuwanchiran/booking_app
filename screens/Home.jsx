@@ -4,7 +4,7 @@ import HorizontalScrollView from "../components/HorizontalScrollView";
 import Screen from "../components/Screen";
 import { ScrollView } from "react-native-gesture-handler";
 import SoakUpTheSun from "../dataset/soakUpTheSun";
-
+//TODO: hi
 export default function Home({ navigation }) {
   return (
     <Screen navigation={navigation}>
