@@ -6,7 +6,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import SoakUpTheSun from "../dataset/soakUpTheSun";
 import { TouchableOpacity } from 'react-native';
 import routes from '../navigations/routes'
-
+//TODO: just a test
 export default function Home({ navigation }) {
   return (
     <Screen navigation={navigation}>
