@@ -19,6 +19,7 @@ export default function CustomerService({ navigation }) {
       />
       <View style={{ marginHorizontal: 20, marginVertical: 10 }}>
         <AppButton
+          opacity
           title='Ask a question'
           color='primary'
           icon='comment-question-outline'

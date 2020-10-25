@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import {
   ScrollView,
-  TouchableNativeFeedback,
+  TouchableWithoutFeedback
 } from "react-native-gesture-handler";
 import AppTextInput from '../common/AppTextInput';
 import Card from "../common/Card";
@@ -33,7 +33,7 @@ export default function HotelList({ navigation, route }) {
       </View>
       <ScrollView style={{ padding: 17 }}>
         {data.map((data, index) => (
-          <TouchableNativeFeedback
+          <TouchableWithoutFeedback
             style={{ marginVertical: 10, padding: 3 }}
             key={index}
             onPress={() =>
@@ -49,7 +49,7 @@ export default function HotelList({ navigation, route }) {
               rating={data.rating}
               marginNone
             />
-          </TouchableNativeFeedback>
+          </TouchableWithoutFeedback>
         ))}
       </ScrollView>
     </Screen >

@@ -33,16 +33,17 @@ export default function HotelDetails({ navigation, route }) {
           rating={rating}
           reviews={reviews.length}
         />
-        <AppButton
-            title="Select rooms"
-            color="primary"
-            icon="export"
-            iconColor="light"
-            borderRadius={0}
-            style={styles.roomsButton}
-            width="100%"
-            onPress={()=> { navigation.navigate(routes.RoomList,{rooms: rooms}) }}
-        />
+        <View style={{paddingHorizontal:20}}>
+          <AppButton
+              opacity
+              title="Select rooms"
+              color="primary"
+              icon="export"
+              iconColor="light"
+              style={styles.roomsButton}
+              onPress={()=> { navigation.navigate(routes.RoomList,{rooms: rooms}) }}
+          />
+        </View>
         <Card title='Description' subTitle={description} />
         <Card title='Address' subTitle={address} />
 
@@ -65,6 +66,7 @@ export default function HotelDetails({ navigation, route }) {
       </ScrollView>
       <View style={styles.formContainer}>
         <AppButton
+          opacity
           title="Book Hotel"
           color="primary"
           onPress={() => navigation.navigate(routes.HotelFillInfo)}
@@ -87,9 +89,8 @@ const styles = StyleSheet.create({
     height: 320,
   },
   roomsButton:{
-    width: "100%",
     height: 320, 
-    margin:10
+    alignContent:'center',
   },
   formContainer: {
     paddingHorizontal: 30,

@@ -36,6 +36,7 @@ export default function QuestionsAdd({ navigation }) {
           <AppText style={styles.disableDiv}>nuwanchiran@gmail.com</AppText>
           <View style={{ marginHorizontal: 20, marginTop: 80, marginBottom: 20 }}>
             <AppButton
+              opacity
               title='Ask a question'
               color='primary'
               icon='comment-question-outline'
